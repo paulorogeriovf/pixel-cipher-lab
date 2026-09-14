@@ -216,7 +216,7 @@ ul {
 }
 
 .logo-text {
-    font-size: 1.05rem;
+    font-size: 1.25rem;
 }
 
 .logo-text strong {
@@ -434,5 +434,89 @@ ul {
         animation-duration: 0.01ms !important;
         animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
+    }
+}
+
+/* ==================================
+   IMG Logo
+================================== */
+
+.logo-index {
+    width: 78px;
+    height: 78px;
+    display: block;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+/* ==================================
+   CORREÇÃO DO MENU EM Mobile
+================================== */
+
+@media (max-width: 960px) {
+    .navigation {
+        position: fixed;
+        z-index: 999;
+        top: 78px;
+        right: 0;
+        bottom: 0;
+        left: 0;
+
+        width: 100%;
+        height: calc(100vh - 78px);
+        padding: 28px 20px;
+
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: flex-start;
+        gap: 6px;
+
+        overflow-y: auto;
+
+        border: 0;
+        border-top: 1px solid var(--border);
+        background: #030604;
+
+        transform: translateX(100%);
+        transition: transform 220ms ease;
+    }
+
+    .navigation.open {
+        transform: translateX(0);
+    }
+
+    .nav-link {
+        width: 100%;
+        padding: 16px 14px;
+
+        display: block;
+
+        color: var(--text-muted);
+        border: 1px solid transparent;
+        border-bottom: 1px solid rgba(0, 255, 102, 0.12);
+
+        font-size: 0.82rem;
+        text-align: left;
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+        color: var(--primary);
+        border-color: var(--border);
+        background: rgba(0, 255, 102, 0.06);
+    }
+
+    .nav-highlight {
+        margin-top: 12px;
+        color: var(--primary);
+        border: 1px solid var(--border-strong);
+        text-align: center;
+    }
+
+    body.menu-open .header {
+        border-bottom-color: var(--border);
+        background: #030604;
+        backdrop-filter: none;
     }
 }
