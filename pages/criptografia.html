@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Aprenda criptografia e proteja mensagens diretamente no navegador com o PixelCipher Lab."
+    >
+
+    <title>Criptografia | PixelCipher Lab</title>
+
+    <link
+        rel="icon"
+        type="image/png"
+        href="../assets/icons/favicon.png"
+    >
+
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/conteudo.css">
+    <link rel="stylesheet" href="../css/criptografia.css">
+
+    <script src="../js/main.js" defer></script>
+    <script src="../js/criptografia.js" defer></script>
+</head>
+
+<body>
+    <header class="header scrolled">
+        <div class="container header-content">
+            <a href="../index.html" class="logo">
+                <span class="logo-symbol">&lt;/&gt;</span>
+
+                <span class="logo-text">
+                    PixelCipher
+                    <strong>Lab</strong>
+                </span>
+            </a>
+
+            <button
+                class="menu-button"
+                id="menu-button"
+                type="button"
+                aria-label="Abrir menu"
+                aria-expanded="false"
+                aria-controls="navigation"
+            >
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <nav class="navigation" id="navigation">
+                <a href="../index.html" class="nav-link">Início</a>
+
+                <a href="fundamentos.html" class="nav-link">
+                    Fundamentos
+                </a>
+
+                <a href="filtros.html" class="nav-link">
+                    Filtros
+                </a>
+
+                <a href="criptografia.html" class="nav-link active">
+                    Criptografia
+                </a>
+
+                <a href="esteganografia.html" class="nav-link">
+                    Esteganografia
+                </a>
+
+                <a href="laboratorio.html" class="nav-link nav-highlight">
+                    Laboratório
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Apresentação -->
+        <section class="content-hero crypto-hero">
+            <div class="container">
+                <div class="breadcrumb">
+                    <a href="../index.html">Início</a>
+                    <span>/</span>
+                    <span>Criptografia</span>
+                </div>
+
+                <div class="content-hero-grid">
+                    <div>
+                        <span class="section-code">
+                            MÓDULO 03 // CRIPTOGRAFIA
+                        </span>
+
+                        <h1>
+                            Torne uma mensagem
+                            <span>ilegível sem a chave.</span>
+                        </h1>
+
+                        <p>
+                            Entenda como a criptografia protege informações e
+                            experimente transformar uma mensagem em dados
+                            cifrados diretamente no navegador.
+                        </p>
+                    </div>
+
+                    <aside class="module-summary">
+                        <span class="summary-status">
+                            AMBIENTE SEGURO
+                        </span>
+
+                        <h2>Tecnologias utilizadas</h2>
+
+                        <ul>
+                            <li>
+                                <span>01</span>
+                                AES-GCM
+                            </li>
+
+                            <li>
+                                <span>02</span>
+                                Chave de 256 bits
+                            </li>
+
+                            <li>
+                                <span>03</span>
+                                PBKDF2
+                            </li>
+
+                            <li>
+                                <span>04</span>
+                                Web Crypto API
+                            </li>
+                        </ul>
+                    </aside>
+                </div>
+            </div>
+        </section>
+
+        <!-- Fundamentação -->
+        <section class="content-section">
+            <div class="container">
+                <div class="chapter-heading">
+                    <span class="chapter-number">01</span>
+
+                    <div>
+                        <span class="section-code">FUNDAMENTAÇÃO</span>
+                        <h2>O que é criptografia?</h2>
+                    </div>
+                </div>
+
+                <div class="text-grid">
+                    <article class="text-card">
+                        <h3>Proteção da informação</h3>
+
+                        <p>
+                            Criptografia é o processo de transformar uma
+                            informação legível em dados aparentemente
+                            aleatórios. Para recuperar o conteúdo original,
+                            é necessário utilizar a chave correta.
+                        </p>
+
+                        <p>
+                            Mesmo que uma pessoa tenha acesso ao texto
+                            criptografado, ela não deverá conseguir entender
+                            a mensagem sem possuir a senha.
+                        </p>
+                    </article>
+
+                    <article class="crypto-flow-card">
+                        <div class="flow-item">
+                            <span>ENTRADA</span>
+                            <strong>Mensagem secreta</strong>
+                        </div>
+
+                        <span class="flow-arrow">↓</span>
+
+                        <div class="flow-item highlighted">
+                            <span>ALGORITMO + CHAVE</span>
+                            <strong>AES-GCM</strong>
+                        </div>
+
+                        <span class="flow-arrow">↓</span>
+
+                        <div class="flow-item">
+                            <span>SAÍDA</span>
+                            <strong>8fB2z9Kx0a...</strong>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="information-box">
+                    <span class="information-icon">!</span>
+
+                    <p>
+                        Criptografia não esconde a existência da mensagem.
+                        Ela protege seu conteúdo. A esteganografia, apresentada
+                        no próximo módulo, esconde a própria mensagem.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Conceitos -->
+        <section class="content-section alternate-section">
+            <div class="container">
+                <div class="chapter-heading">
+                    <span class="chapter-number">02</span>
+
+                    <div>
+                        <span class="section-code">ELEMENTOS</span>
+                        <h2>Partes do processo criptográfico</h2>
+                    </div>
+                </div>
+
+                <div class="concept-grid">
+                    <article class="concept-card">
+                        <span class="concept-number">01</span>
+                        <h3>Texto original</h3>
+
+                        <p>
+                            Informação legível antes da aplicação do
+                            algoritmo criptográfico.
+                        </p>
+
+                        <code>Olá, esta mensagem é secreta.</code>
+                    </article>
+
+                    <article class="concept-card">
+                        <span class="concept-number">02</span>
+                        <h3>Chave</h3>
+
+                        <p>
+                            Informação secreta utilizada para criptografar e
+                            recuperar o conteúdo.
+                        </p>
+
+                        <code>••••••••••••</code>
+                    </article>
+
+                    <article class="concept-card">
+                        <span class="concept-number">03</span>
+                        <h3>Texto cifrado</h3>
+
+                        <p>
+                            Resultado ilegível produzido pelo algoritmo de
+                            criptografia.
+                        </p>
+
+                        <code>eyJzYWx0Ijoi...</code>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Laboratório -->
+        <section class="content-section crypto-laboratory-section">
+            <div class="container">
+                <div class="chapter-heading">
+                    <span class="chapter-number">03</span>
+
+                    <div>
+                        <span class="section-code">
+                            EXPERIÊNCIA INTERATIVA
+                        </span>
+
+                        <h2>Laboratório de criptografia</h2>
+                    </div>
+                </div>
+
+                <div class="privacy-notice">
+                    <span class="privacy-status"></span>
+
+                    <p>
+                        Todo o processo acontece localmente. A mensagem e a
+                        senha não são enviadas para nenhum servidor.
+                    </p>
+                </div>
+
+                <div class="crypto-tabs">
+                    <button
+                        type="button"
+                        class="crypto-tab active"
+                        data-tab="encrypt"
+                    >
+                        <span>[01]</span>
+                        Criptografar
+                    </button>
+
+                    <button
+                        type="button"
+                        class="crypto-tab"
+                        data-tab="decrypt"
+                    >
+                        <span>[02]</span>
+                        Descriptografar
+                    </button>
+                </div>
+
+                <!-- Criptografar -->
+                <section class="crypto-tool" id="encrypt-panel">
+                    <div class="tool-column">
+                        <div class="tool-header">
+                            <span>ENTRADA</span>
+                            <span>mensagem_original.txt</span>
+                        </div>
+
+                        <div class="tool-body">
+                            <label for="encrypt-message">
+                                Mensagem
+                            </label>
+
+                            <textarea
+                                id="encrypt-message"
+                                rows="9"
+                                maxlength="5000"
+                                placeholder="Digite a mensagem que deseja proteger..."
+                            ></textarea>
+
+                            <div class="character-counter">
+                                <span id="encrypt-counter">0</span>/5000
+                            </div>
+
+                            <label for="encrypt-password">
+                                Senha
+                            </label>
+
+                            <div class="password-field">
+                                <input
+                                    type="password"
+                                    id="encrypt-password"
+                                    autocomplete="new-password"
+                                    placeholder="Digite uma senha forte"
+                                >
+
+                                <button
+                                    type="button"
+                                    class="show-password"
+                                    data-target="encrypt-password"
+                                >
+                                    Mostrar
+                                </button>
+                            </div>
+
+                            <div class="password-strength">
+                                <div class="strength-bar">
+                                    <span id="strength-progress"></span>
+                                </div>
+
+                                <span id="strength-text">
+                                    Informe uma senha
+                                </span>
+                            </div>
+
+                            <button
+                                type="button"
+                                class="button button-primary main-tool-button"
+                                id="encrypt-button"
+                            >
+                                Criptografar mensagem
+                                <span>→</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="tool-operation">
+                        <span class="operation-icon">→</span>
+                        <small>AES-256-GCM</small>
+                    </div>
+
+                    <div class="tool-column output-column">
+                        <div class="tool-header">
+                            <span>RESULTADO</span>
+                            <span>dados_criptografados.txt</span>
+                        </div>
+
+                        <div class="tool-body">
+                            <label for="encrypted-output">
+                                Conteúdo criptografado
+                            </label>
+
+                            <textarea
+                                id="encrypted-output"
+                                rows="13"
+                                readonly
+                                placeholder="O resultado aparecerá aqui..."
+                            ></textarea>
+
+                            <div class="output-actions">
+                                <button
+                                    type="button"
+                                    class="button button-secondary"
+                                    id="copy-encrypted-button"
+                                    disabled
+                                >
+                                    Copiar resultado
+                                </button>
+
+                                <button
+                                    type="button"
+                                    class="clear-button"
+                                    id="clear-encrypt-button"
+                                >
+                                    Limpar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Descriptografar -->
+                <section
+                    class="crypto-tool hidden"
+                    id="decrypt-panel"
+                >
+                    <div class="tool-column">
+                        <div class="tool-header">
+                            <span>ENTRADA</span>
+                            <span>dados_criptografados.txt</span>
+                        </div>
+
+                        <div class="tool-body">
+                            <label for="decrypt-message">
+                                Conteúdo criptografado
+                            </label>
+
+                            <textarea
+                                id="decrypt-message"
+                                rows="9"
+                                placeholder="Cole aqui o conteúdo criptografado..."
+                            ></textarea>
+
+                            <label for="decrypt-password">
+                                Senha
+                            </label>
+
+                            <div class="password-field">
+                                <input
+                                    type="password"
+                                    id="decrypt-password"
+                                    autocomplete="current-password"
+                                    placeholder="Digite a senha utilizada"
+                                >
+
+                                <button
+                                    type="button"
+                                    class="show-password"
+                                    data-target="decrypt-password"
+                                >
+                                    Mostrar
+                                </button>
+                            </div>
+
+                            <button
+                                type="button"
+                                class="button button-primary main-tool-button"
+                                id="decrypt-button"
+                            >
+                                Descriptografar
+                                <span>→</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="tool-operation">
+                        <span class="operation-icon">→</span>
+                        <small>CHAVE CORRETA</small>
+                    </div>
+
+                    <div class="tool-column output-column">
+                        <div class="tool-header">
+                            <span>RESULTADO</span>
+                            <span>mensagem_recuperada.txt</span>
+                        </div>
+
+                        <div class="tool-body">
+                            <label for="decrypted-output">
+                                Mensagem recuperada
+                            </label>
+
+                            <textarea
+                                id="decrypted-output"
+                                rows="13"
+                                readonly
+                                placeholder="A mensagem aparecerá aqui..."
+                            ></textarea>
+
+                            <div class="output-actions">
+                                <button
+                                    type="button"
+                                    class="button button-secondary"
+                                    id="copy-decrypted-button"
+                                    disabled
+                                >
+                                    Copiar mensagem
+                                </button>
+
+                                <button
+                                    type="button"
+                                    class="clear-button"
+                                    id="clear-decrypt-button"
+                                >
+                                    Limpar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <div
+                    class="crypto-status hidden"
+                    id="crypto-status"
+                    role="status"
+                ></div>
+            </div>
+        </section>
+
+        <!-- AES -->
+        <section class="content-section alternate-section">
+            <div class="container">
+                <div class="chapter-heading">
+                    <span class="chapter-number">04</span>
+
+                    <div>
+                        <span class="section-code">
+                            IMPLEMENTAÇÃO
+                        </span>
+
+                        <h2>O que acontece no laboratório?</h2>
+                    </div>
+                </div>
+
+                <div class="implementation-grid">
+                    <article>
+                        <span>01</span>
+                        <h3>Salt aleatório</h3>
+
+                        <p>
+                            O sistema gera dados aleatórios para que a mesma
+                            senha produza chaves diferentes.
+                        </p>
+                    </article>
+
+                    <article>
+                        <span>02</span>
+                        <h3>Derivação da chave</h3>
+
+                        <p>
+                            O PBKDF2 transforma a senha em uma chave
+                            criptográfica de 256 bits.
+                        </p>
+                    </article>
+
+                    <article>
+                        <span>03</span>
+                        <h3>Criptografia</h3>
+
+                        <p>
+                            O AES-GCM protege a mensagem e permite verificar
+                            se os dados foram modificados.
+                        </p>
+                    </article>
+
+                    <article>
+                        <span>04</span>
+                        <h3>Pacote final</h3>
+
+                        <p>
+                            Salt, vetor de inicialização e texto cifrado são
+                            reunidos para permitir a recuperação.
+                        </p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Próximo módulo -->
+        <section class="next-module-section">
+            <div class="container next-module-card">
+                <div>
+                    <span class="section-code">PRÓXIMO MÓDULO</span>
+
+                    <h2>Como esconder a mensagem protegida?</h2>
+
+                    <p>
+                        No próximo módulo, veremos como inserir dados nos bits
+                        menos significativos dos pixels.
+                    </p>
+                </div>
+
+                <a href="esteganografia.html" class="button button-primary">
+                    Ir para esteganografia
+                    <span>→</span>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-content">
+            <a href="../index.html" class="logo footer-logo">
+                <span class="logo-symbol">&lt;/&gt;</span>
+
+                <span class="logo-text">
+                    PixelCipher
+                    <strong>Lab</strong>
+                </span>
+            </a>
+
+            <p>
+                Projeto acadêmico sobre processamento e segurança de imagens.
+            </p>
+
+            <nav class="footer-navigation">
+                <a href="quiz.html">Quiz</a>
+                <a href="sobre.html">Sobre</a>
+                <a href="laboratorio.html">Laboratório</a>
+            </nav>
+        </div>
+
+        <div class="container footer-bottom">
+            <span>
+                PixelCipher Lab ©
+                <span id="current-year"></span>
+            </span>
+
+            <span>
+                Conexão segura // Aprendizado interativo
+            </span>
+        </div>
+    </footer>
+</body>
+</html>
