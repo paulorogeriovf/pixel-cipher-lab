@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="PixelCipher Lab: plataforma educacional interativa sobre filtragem, criptografia e esteganografia em imagens."
+    >
+
+    <title>PixelCipher Lab</title>
+
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/home.css">
+
+    <script src="js/main.js" defer></script>
+    <script src="js/matrix-background.js" defer></script>
+</head>
+
+<body>
+    <!-- Fundo animado -->
+    <canvas id="matrix-background" aria-hidden="true"></canvas>
+
+    <div class="page-overlay"></div>
+
+    <!-- Cabeçalho -->
+    <header class="header">
+        <div class="container header-content">
+            <a href="index.html" class="logo">
+                <span class="logo-symbol">&lt;/&gt;</span>
+
+                <span class="logo-text">
+                    PixelCipher
+                    <strong>Lab</strong>
+                </span>
+            </a>
+
+            <button
+                class="menu-button"
+                id="menu-button"
+                type="button"
+                aria-label="Abrir menu"
+                aria-expanded="false"
+                aria-controls="navigation"
+            >
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <nav class="navigation" id="navigation">
+                <a href="index.html" class="nav-link active">
+                    Início
+                </a>
+
+                <a href="pages/fundamentos.html" class="nav-link">
+                    Fundamentos
+                </a>
+
+                <a href="pages/filtros.html" class="nav-link">
+                    Filtros
+                </a>
+
+                <a href="pages/criptografia.html" class="nav-link">
+                    Criptografia
+                </a>
+
+                <a href="pages/esteganografia.html" class="nav-link">
+                    Esteganografia
+                </a>
+
+                <a href="pages/laboratorio.html" class="nav-link nav-highlight">
+                    Laboratório
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Seção principal -->
+        <section class="hero">
+            <div class="container hero-content">
+                <div class="hero-text">
+                    <div class="system-status">
+                        <span class="status-dot"></span>
+                        SISTEMA EDUCACIONAL ONLINE
+                    </div>
+
+                    <p class="terminal-line">
+                        <span class="terminal-symbol">&gt;</span>
+                        Inicializando ambiente de processamento...
+                    </p>
+
+                    <h1>
+                        Existe mais em uma imagem do que
+                        <span>seus olhos conseguem ver.</span>
+                    </h1>
+
+                    <p class="hero-description">
+                        Explore o processamento de imagens, aplique filtros
+                        digitais, proteja mensagens com criptografia e descubra
+                        como esconder informações dentro de pixels.
+                    </p>
+
+                    <div class="hero-actions">
+                        <a
+                            href="pages/fundamentos.html"
+                            class="button button-primary"
+                        >
+                            <span>Iniciar exploração</span>
+                            <span aria-hidden="true">→</span>
+                        </a>
+
+                        <a
+                            href="pages/laboratorio.html"
+                            class="button button-secondary"
+                        >
+                            Abrir laboratório
+                        </a>
+                    </div>
+
+                    <div class="hero-information">
+                        <span>
+                            <strong>100%</strong>
+                            executado no navegador
+                        </span>
+
+                        <span>
+                            <strong>0</strong>
+                            imagens enviadas
+                        </span>
+
+                        <span>
+                            <strong>LSB</strong>
+                            método utilizado
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Terminal visual -->
+                <div class="terminal-card">
+                    <div class="terminal-header">
+                        <div class="terminal-controls" aria-hidden="true">
+                            <span class="control red"></span>
+                            <span class="control yellow"></span>
+                            <span class="control green"></span>
+                        </div>
+
+                        <span>pixelcipher@lab:~</span>
+                    </div>
+
+                    <div class="terminal-body">
+                        <p>
+                            <span class="prompt">pixelcipher@lab:~$</span>
+                            iniciar sistema
+                        </p>
+
+                        <p class="terminal-message">
+                            Carregando módulos...
+                        </p>
+
+                        <p>
+                            <span class="success">[OK]</span>
+                            Processamento de imagens
+                        </p>
+
+                        <p>
+                            <span class="success">[OK]</span>
+                            Filtros digitais
+                        </p>
+
+                        <p>
+                            <span class="success">[OK]</span>
+                            Criptografia
+                        </p>
+
+                        <p>
+                            <span class="success">[OK]</span>
+                            Esteganografia LSB
+                        </p>
+
+                        <p class="terminal-message">
+                            Sistema preparado.
+                        </p>
+
+                        <p>
+                            <span class="prompt">pixelcipher@lab:~$</span>
+                            <span id="terminal-command"></span>
+                            <span class="terminal-cursor"></span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <a href="#modulos" class="scroll-indicator">
+                <span>Explorar módulos</span>
+                <span class="scroll-arrow">↓</span>
+            </a>
+        </section>
+
+        <!-- Módulos -->
+        <section class="section modules-section" id="modulos">
+            <div class="container">
+                <div class="section-heading">
+                    <span class="section-code">01 // MÓDULOS</span>
+
+                    <h2>Escolha uma área para explorar</h2>
+
+                    <p>
+                        Aprenda os conceitos em etapas e teste cada técnica
+                        diretamente no navegador.
+                    </p>
+                </div>
+
+                <div class="modules-grid">
+                    <article class="module-card">
+                        <span class="module-number">01</span>
+
+                        <div class="module-icon">
+                            <span>[RGB]</span>
+                        </div>
+
+                        <h3>Imagem digital</h3>
+
+                        <p>
+                            Entenda pixels, resolução, canais RGB, matrizes,
+                            representação binária e formatos de imagem.
+                        </p>
+
+                        <ul class="module-topics">
+                            <li>Pixels e resolução</li>
+                            <li>Canais de cores</li>
+                            <li>PNG e JPEG</li>
+                        </ul>
+
+                        <a href="pages/fundamentos.html" class="module-link">
+                            Acessar módulo
+                            <span>→</span>
+                        </a>
+                    </article>
+
+                    <article class="module-card">
+                        <span class="module-number">02</span>
+
+                        <div class="module-icon">
+                            <span>[FX]</span>
+                        </div>
+
+                        <h3>Filtros digitais</h3>
+
+                        <p>
+                            Envie uma imagem e observe como diferentes
+                            operações matemáticas alteram seus pixels.
+                        </p>
+
+                        <ul class="module-topics">
+                            <li>Escala de cinza</li>
+                            <li>Brilho e contraste</li>
+                            <li>Detecção de bordas</li>
+                        </ul>
+
+                        <a href="pages/filtros.html" class="module-link">
+                            Testar filtros
+                            <span>→</span>
+                        </a>
+                    </article>
+
+                    <article class="module-card featured">
+                        <div class="featured-label">DESTAQUE</div>
+
+                        <span class="module-number">03</span>
+
+                        <div class="module-icon">
+                            <span>[KEY]</span>
+                        </div>
+
+                        <h3>Criptografia</h3>
+
+                        <p>
+                            Descubra como uma mensagem pode ser transformada
+                            em dados protegidos utilizando uma senha.
+                        </p>
+
+                        <ul class="module-topics">
+                            <li>Texto original</li>
+                            <li>Chave criptográfica</li>
+                            <li>Texto cifrado</li>
+                        </ul>
+
+                        <a href="pages/criptografia.html" class="module-link">
+                            Criptografar mensagem
+                            <span>→</span>
+                        </a>
+                    </article>
+
+                    <article class="module-card featured">
+                        <div class="featured-label">DESTAQUE</div>
+
+                        <span class="module-number">04</span>
+
+                        <div class="module-icon">
+                            <span>[LSB]</span>
+                        </div>
+
+                        <h3>Esteganografia</h3>
+
+                        <p>
+                            Aprenda como informações podem ser escondidas nos
+                            bits menos significativos de uma imagem.
+                        </p>
+
+                        <ul class="module-topics">
+                            <li>Mensagem em binário</li>
+                            <li>Alteração dos pixels</li>
+                            <li>Extração dos dados</li>
+                        </ul>
+
+                        <a href="pages/esteganografia.html" class="module-link">
+                            Descobrir técnica
+                            <span>→</span>
+                        </a>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Processo -->
+        <section class="section process-section">
+            <div class="container">
+                <div class="section-heading">
+                    <span class="section-code">02 // PROCESSO</span>
+
+                    <h2>Como uma mensagem desaparece na imagem?</h2>
+
+                    <p>
+                        Criptografia e esteganografia trabalham juntas para
+                        proteger o conteúdo e esconder sua existência.
+                    </p>
+                </div>
+
+                <div class="process-grid">
+                    <article class="process-step">
+                        <span class="step-number">01</span>
+
+                        <div>
+                            <h3>Escreva</h3>
+                            <p>Digite a informação que deseja proteger.</p>
+                        </div>
+                    </article>
+
+                    <span class="process-arrow" aria-hidden="true">→</span>
+
+                    <article class="process-step">
+                        <span class="step-number">02</span>
+
+                        <div>
+                            <h3>Criptografe</h3>
+                            <p>A mensagem é protegida utilizando uma senha.</p>
+                        </div>
+                    </article>
+
+                    <span class="process-arrow" aria-hidden="true">→</span>
+
+                    <article class="process-step">
+                        <span class="step-number">03</span>
+
+                        <div>
+                            <h3>Esconda</h3>
+                            <p>Os dados são distribuídos pelos pixels.</p>
+                        </div>
+                    </article>
+
+                    <span class="process-arrow" aria-hidden="true">→</span>
+
+                    <article class="process-step">
+                        <span class="step-number">04</span>
+
+                        <div>
+                            <h3>Recupere</h3>
+                            <p>A senha correta revela a mensagem original.</p>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="process-action">
+                    <a
+                        href="pages/laboratorio.html"
+                        class="button button-primary"
+                    >
+                        Testar no laboratório
+                        <span>→</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Comparação -->
+        <section class="section comparison-section">
+            <div class="container comparison-content">
+                <div class="comparison-text">
+                    <span class="section-code">03 // COMPARAÇÃO</span>
+
+                    <h2>Criptografar não é o mesmo que esconder</h2>
+
+                    <p>
+                        As duas técnicas protegem informações, mas possuem
+                        objetivos diferentes. No laboratório, elas serão
+                        utilizadas em conjunto.
+                    </p>
+                </div>
+
+                <div class="comparison-cards">
+                    <article class="comparison-card">
+                        <span class="comparison-command">
+                            $ criptografar mensagem.txt
+                        </span>
+
+                        <h3>Criptografia</h3>
+
+                        <p>
+                            Transforma uma mensagem legível em dados que não
+                            podem ser compreendidos sem a chave correta.
+                        </p>
+
+                        <div class="data-example">
+                            <span>ENTRADA</span>
+                            <code>Mensagem secreta</code>
+
+                            <span>SAÍDA</span>
+                            <code class="encrypted">
+                                8F3A-7D91-B2E4...
+                            </code>
+                        </div>
+                    </article>
+
+                    <article class="comparison-card">
+                        <span class="comparison-command">
+                            $ ocultar --metodo lsb
+                        </span>
+
+                        <h3>Esteganografia</h3>
+
+                        <p>
+                            Esconde a existência da mensagem dentro de outro
+                            arquivo, como uma imagem aparentemente comum.
+                        </p>
+
+                        <div class="binary-example" aria-label="Exemplo binário">
+                            <span>1100101<span>1</span></span>
+                            <span>0110100<span>0</span></span>
+                            <span>1011011<span>1</span></span>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Chamada final -->
+        <section class="section final-section">
+            <div class="container final-card">
+                <div>
+                    <span class="section-code">SISTEMA PRONTO</span>
+
+                    <h2>Preparado para olhar além dos pixels?</h2>
+
+                    <p>
+                        Acesse o laboratório e esconda sua primeira mensagem
+                        dentro de uma imagem.
+                    </p>
+                </div>
+
+                <a
+                    href="pages/laboratorio.html"
+                    class="button button-primary"
+                >
+                    Iniciar experiência
+                    <span>→</span>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Rodapé -->
+    <footer class="footer">
+        <div class="container footer-content">
+            <a href="index.html" class="logo footer-logo">
+                <span class="logo-symbol">&lt;/&gt;</span>
+
+                <span class="logo-text">
+                    PixelCipher
+                    <strong>Lab</strong>
+                </span>
+            </a>
+
+            <p>
+                Projeto acadêmico sobre processamento e segurança de imagens.
+            </p>
+
+            <nav class="footer-navigation">
+                <a href="pages/quiz.html">Quiz</a>
+                <a href="pages/sobre.html">Sobre</a>
+                <a href="https://github.com/" target="_blank" rel="noopener">
+                    GitHub
+                </a>
+            </nav>
+        </div>
+
+        <div class="container footer-bottom">
+            <span>PixelCipher Lab © <span id="current-year"></span></span>
+            <span>Conexão segura // Aprendizado interativo</span>
+        </div>
+    </footer>
+</body>
+</html>
