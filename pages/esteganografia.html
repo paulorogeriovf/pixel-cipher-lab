@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Aprenda esteganografia LSB e esconda mensagens dentro de imagens."
+    >
+
+    <title>Esteganografia | PixelCipher Lab</title>
+
+    <link
+        rel="icon"
+        type="image/png"
+        href="../assets/icons/favicon.png"
+    >
+
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/conteudo.css">
+    <link rel="stylesheet" href="../css/esteganografia.css">
+
+    <script src="../js/main.js" defer></script>
+    <script src="../js/esteganografia.js" defer></script>
+</head>
+
+<body>
+    <header class="header scrolled">
+        <div class="container header-content">
+            <a href="../index.html" class="logo">
+                <span class="logo-symbol">&lt;/&gt;</span>
+
+                <span class="logo-text">
+                    PixelCipher
+                    <strong>Lab</strong>
+                </span>
+            </a>
+
+            <button
+                class="menu-button"
+                id="menu-button"
+                type="button"
+                aria-label="Abrir menu"
+                aria-expanded="false"
+                aria-controls="navigation"
+            >
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <nav class="navigation" id="navigation">
+                <a href="../index.html" class="nav-link">Início</a>
+
+                <a href="fundamentos.html" class="nav-link">
+                    Fundamentos
+                </a>
+
+                <a href="filtros.html" class="nav-link">
+                    Filtros
+                </a>
+
+                <a href="criptografia.html" class="nav-link">
+                    Criptografia
+                </a>
+
+                <a href="esteganografia.html" class="nav-link active">
+                    Esteganografia
+                </a>
+
+                <a href="laboratorio.html" class="nav-link nav-highlight">
+                    Laboratório
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Apresentação -->
+        <section class="content-hero stego-hero">
+            <div class="container">
+                <div class="breadcrumb">
+                    <a href="../index.html">Início</a>
+                    <span>/</span>
+                    <span>Esteganografia</span>
+                </div>
+
+                <div class="content-hero-grid">
+                    <div>
+                        <span class="section-code">
+                            MÓDULO 04 // ESTEGANOGRAFIA
+                        </span>
+
+                        <h1>
+                            Esconda informações
+                            <span>dentro dos pixels.</span>
+                        </h1>
+
+                        <p>
+                            Descubra como pequenas alterações nos bits de uma
+                            imagem podem armazenar uma mensagem sem causar uma
+                            diferença visual facilmente perceptível.
+                        </p>
+                    </div>
+
+                    <aside class="module-summary">
+                        <span class="summary-status">
+                            MÉTODO LSB
+                        </span>
+
+                        <h2>Neste módulo</h2>
+
+                        <ul>
+                            <li>
+                                <span>01</span>
+                                Conceito de esteganografia
+                            </li>
+
+                            <li>
+                                <span>02</span>
+                                Bits menos significativos
+                            </li>
+
+                            <li>
+                                <span>03</span>
+                                Inserção da mensagem
+                            </li>
+
+                            <li>
+                                <span>04</span>
+                                Extração da mensagem
+                            </li>
+                        </ul>
+                    </aside>
+                </div>
+            </div>
+        </section>
+
+        <!-- Conceito -->
+        <section class="content-section">
+            <div class="container">
+                <div class="chapter-heading">
+                    <span class="chapter-number">01</span>
+
+                    <div>
+                        <span class="section-code">CONCEITO</span>
+                        <h2>O que é esteganografia?</h2>
+                    </div>
+                </div>
+
+                <div class="text-grid">
+                    <article class="text-card">
+                        <h3>Ocultar a existência da informação</h3>
+
+                        <p>
+                            Esteganografia é a técnica de esconder uma
+                            informação dentro de outro conteúdo, como uma
+                            imagem, áudio ou vídeo.
+                        </p>
+
+                        <p>
+                            Diferentemente da criptografia, seu objetivo
+                            principal não é tornar a mensagem ilegível, mas
+                            fazer com que sua existência passe despercebida.
+                        </p>
+                    </article>
+
+                    <article class="comparison-terminal">
+                        <div class="comparison-row">
+                            <span>CRIPTOGRAFIA</span>
+                            <code>Texto → Dados ilegíveis</code>
+                        </div>
+
+                        <div class="comparison-row highlighted">
+                            <span>ESTEGANOGRAFIA</span>
+                            <code>Texto → Dentro da imagem</code>
+                        </div>
+
+                        <div class="comparison-row">
+                            <span>COMBINAÇÃO</span>
+                            <code>Protege + Esconde</code>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- LSB -->
+        <section class="content-section alternate-section">
+            <div class="container">
+                <div class="chapter-heading">
+                    <span class="chapter-number">02</span>
+
+                    <div>
+                        <span class="section-code">
+                            LEAST SIGNIFICANT BIT
+                        </span>
+
+                        <h2>Como funciona o método LSB?</h2>
+                    </div>
+                </div>
+
+                <p class="chapter-introduction">
+                    O LSB utiliza o bit menos significativo de cada canal RGB.
+                    Alterar esse último bit provoca uma mudança de apenas uma
+                    unidade no valor da cor.
+                </p>
+
+                <div class="lsb-demonstration">
+                    <article class="bit-card">
+                        <span>VALOR ORIGINAL</span>
+                        <strong>
+                            1100101<span class="old-bit">0</span>
+                        </strong>
+                        <small>Decimal: 202</small>
+                    </article>
+
+                    <div class="message-bit">
+                        <span>BIT DA MENSAGEM</span>
+                        <strong>1</strong>
+                    </div>
+
+                    <article class="bit-card modified">
+                        <span>VALOR MODIFICADO</span>
+                        <strong>
+                            1100101<span class="new-bit">1</span>
+                        </strong>
+                        <small>Decimal: 203</small>
+                    </article>
+                </div>
+
+                <div class="information-box">
+                    <span class="information-icon">i</span>
+
+                    <p>
+                        A diferença entre 202 e 203 é mínima. Repetindo esse
+                        processo em vários canais, podemos armazenar os bits
+                        de uma mensagem completa.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Etapas -->
+        <section class="content-section">
+            <div class="container">
+                <div class="chapter-heading">
+                    <span class="chapter-number">03</span>
+
+                    <div>
+                        <span class="section-code">PROCESSO</span>
+                        <h2>Como a mensagem é inserida?</h2>
+                    </div>
+                </div>
+
+                <div class="stego-steps">
+                    <article>
+                        <span>01</span>
+                        <h3>Converter</h3>
+                        <p>A mensagem é convertida em bytes e bits.</p>
+                    </article>
+
+                    <article>
+                        <span>02</span>
+                        <h3>Preparar</h3>
+                        <p>O sistema registra o tamanho da mensagem.</p>
+                    </article>
+
+                    <article>
+                        <span>03</span>
+                        <h3>Inserir</h3>
+                        <p>Cada bit é colocado em um canal RGB.</p>
+                    </article>
+
+                    <article>
+                        <span>04</span>
+                        <h3>Exportar</h3>
+                        <p>A nova imagem é salva no formato PNG.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Laboratório -->
+        <section class="content-section stego-laboratory-section">
+            <div class="container">
+                <div class="chapter-heading">
+                    <span class="chapter-number">04</span>
+
+                    <div>
+                        <span class="section-code">
+                            EXPERIÊNCIA INTERATIVA
+                        </span>
+
+                        <h2>Laboratório LSB</h2>
+                    </div>
+                </div>
+
+                <div class="privacy-notice">
+                    <span class="privacy-status"></span>
+
+                    <p>
+                        As imagens e mensagens permanecem no seu dispositivo.
+                        Nenhum dado é enviado para servidores.
+                    </p>
+                </div>
+
+                <div class="stego-tabs">
+                    <button
+                        type="button"
+                        class="stego-tab active"
+                        data-tab="hide"
+                    >
+                        <span>[01]</span>
+                        Esconder mensagem
+                    </button>
+
+                    <button
+                        type="button"
+                        class="stego-tab"
+                        data-tab="reveal"
+                    >
+                        <span>[02]</span>
+                        Revelar mensagem
+                    </button>
+                </div>
+
+                <!-- Esconder -->
+                <section class="stego-tool" id="hide-panel">
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <span>ENTRADA</span>
+                            <span>imagem_original</span>
+                        </div>
+
+                        <div class="tool-body">
+                            <input
+                                type="file"
+                                id="hide-image-input"
+                                accept="image/png,image/jpeg,image/webp"
+                                hidden
+                            >
+
+                            <button
+                                type="button"
+                                class="image-selector"
+                                id="hide-image-button"
+                            >
+                                <span class="selector-icon">[IMG]</span>
+
+                                <span>
+                                    <strong>Selecionar imagem</strong>
+                                    <small>PNG, JPEG ou WEBP</small>
+                                </span>
+                            </button>
+
+                            <div
+                                class="image-preview-container hidden"
+                                id="hide-preview-container"
+                            >
+                                <canvas id="hide-canvas"></canvas>
+
+                                <div class="image-data">
+                                    <span id="hide-file-name">
+                                        imagem.png
+                                    </span>
+
+                                    <span id="hide-resolution">
+                                        0 × 0
+                                    </span>
+                                </div>
+                            </div>
+
+                            <label for="secret-message">
+                                Mensagem secreta
+                            </label>
+
+                            <textarea
+                                id="secret-message"
+                                rows="6"
+                                placeholder="Digite a mensagem que será escondida..."
+                            ></textarea>
+
+                            <div class="capacity-information">
+                                <div>
+                                    <span>UTILIZADO</span>
+                                    <strong id="used-capacity">0 bytes</strong>
+                                </div>
+
+                                <div>
+                                    <span>DISPONÍVEL</span>
+                                    <strong id="total-capacity">0 bytes</strong>
+                                </div>
+                            </div>
+
+                            <div class="capacity-bar">
+                                <span id="capacity-progress"></span>
+                            </div>
+
+                            <button
+                                type="button"
+                                class="button button-primary tool-button"
+                                id="hide-message-button"
+                                disabled
+                            >
+                                Esconder mensagem
+                                <span>→</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="tool-arrow">
+                        <span>→</span>
+                        <small>LSB</small>
+                    </div>
+
+                    <div class="tool-card result-card">
+                        <div class="tool-header">
+                            <span>RESULTADO</span>
+                            <span>imagem_codificada.png</span>
+                        </div>
+
+                        <div class="tool-body result-body">
+                            <div
+                                class="empty-result"
+                                id="hide-empty-result"
+                            >
+                                <span>[ ? ]</span>
+
+                                <p>
+                                    A imagem com a mensagem aparecerá aqui.
+                                </p>
+                            </div>
+
+                            <div
+                                class="encoded-result hidden"
+                                id="encoded-result"
+                            >
+                                <canvas id="result-stego-canvas"></canvas>
+
+                                <div class="success-result">
+                                    <strong>Mensagem escondida</strong>
+
+                                    <span id="changed-channels">
+                                        0 canais alterados
+                                    </span>
+                                </div>
+                            </div>
+
+                            <button
+                                type="button"
+                                class="button button-primary tool-button"
+                                id="download-stego-button"
+                                disabled
+                            >
+                                Baixar imagem PNG
+                            </button>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Revelar -->
+                <section
+                    class="stego-tool hidden"
+                    id="reveal-panel"
+                >
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <span>ENTRADA</span>
+                            <span>imagem_codificada.png</span>
+                        </div>
+
+                        <div class="tool-body">
+                            <input
+                                type="file"
+                                id="reveal-image-input"
+                                accept="image/png"
+                                hidden
+                            >
+
+                            <button
+                                type="button"
+                                class="image-selector"
+                                id="reveal-image-button"
+                            >
+                                <span class="selector-icon">[LSB]</span>
+
+                                <span>
+                                    <strong>Selecionar imagem PNG</strong>
+                                    <small>Utilize uma imagem gerada aqui</small>
+                                </span>
+                            </button>
+
+                            <div
+                                class="image-preview-container hidden"
+                                id="reveal-preview-container"
+                            >
+                                <canvas id="reveal-canvas"></canvas>
+
+                                <div class="image-data">
+                                    <span id="reveal-file-name">
+                                        imagem.png
+                                    </span>
+
+                                    <span id="reveal-resolution">
+                                        0 × 0
+                                    </span>
+                                </div>
+                            </div>
+
+                            <button
+                                type="button"
+                                class="button button-primary tool-button"
+                                id="reveal-message-button"
+                                disabled
+                            >
+                                Procurar mensagem
+                                <span>→</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="tool-arrow">
+                        <span>→</span>
+                        <small>EXTRAIR</small>
+                    </div>
+
+                    <div class="tool-card result-card">
+                        <div class="tool-header">
+                            <span>RESULTADO</span>
+                            <span>mensagem_extraida.txt</span>
+                        </div>
+
+                        <div class="tool-body">
+                            <label for="revealed-message">
+                                Mensagem encontrada
+                            </label>
+
+                            <textarea
+                                id="revealed-message"
+                                rows="12"
+                                readonly
+                                placeholder="A mensagem escondida aparecerá aqui..."
+                            ></textarea>
+
+                            <button
+                                type="button"
+                                class="button button-secondary tool-button"
+                                id="copy-revealed-button"
+                                disabled
+                            >
+                                Copiar mensagem
+                            </button>
+                        </div>
+                    </div>
+                </section>
+
+                <div
+                    class="stego-status hidden"
+                    id="stego-status"
+                    role="status"
+                ></div>
+            </div>
+        </section>
+
+        <!-- Cuidados -->
+        <section class="content-section alternate-section">
+            <div class="container">
+                <div class="chapter-heading">
+                    <span class="chapter-number">05</span>
+
+                    <div>
+                        <span class="section-code">LIMITAÇÕES</span>
+                        <h2>Cuidados com a imagem</h2>
+                    </div>
+                </div>
+
+                <div class="warning-grid">
+                    <article>
+                        <span class="warning-symbol">+</span>
+                        <h3>Utilize PNG</h3>
+
+                        <p>
+                            O formato preserva os valores dos pixels após o
+                            arquivo ser salvo.
+                        </p>
+                    </article>
+
+                    <article>
+                        <span class="warning-symbol">!</span>
+                        <h3>Evite conversões</h3>
+
+                        <p>
+                            Converter a imagem para JPEG poderá destruir os
+                            bits da mensagem.
+                        </p>
+                    </article>
+
+                    <article>
+                        <span class="warning-symbol">!</span>
+                        <h3>Cuidado ao enviar</h3>
+
+                        <p>
+                            Algumas plataformas comprimem ou modificam
+                            automaticamente as imagens.
+                        </p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Próximo módulo -->
+        <section class="next-module-section">
+            <div class="container next-module-card">
+                <div>
+                    <span class="section-code">PRÓXIMA ETAPA</span>
+
+                    <h2>Vamos combinar as duas técnicas</h2>
+
+                    <p>
+                        No laboratório principal, a mensagem será
+                        criptografada com senha antes de ser escondida na
+                        imagem.
+                    </p>
+                </div>
+
+                <a href="laboratorio.html" class="button button-primary">
+                    Abrir laboratório
+                    <span>→</span>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-content">
+            <a href="../index.html" class="logo footer-logo">
+                <span class="logo-symbol">&lt;/&gt;</span>
+
+                <span class="logo-text">
+                    PixelCipher
+                    <strong>Lab</strong>
+                </span>
+            </a>
+
+            <p>
+                Projeto acadêmico sobre processamento e segurança de imagens.
+            </p>
+
+            <nav class="footer-navigation">
+                <a href="quiz.html">Quiz</a>
+                <a href="sobre.html">Sobre</a>
+                <a href="laboratorio.html">Laboratório</a>
+            </nav>
+        </div>
+
+        <div class="container footer-bottom">
+            <span>
+                PixelCipher Lab ©
+                <span id="current-year"></span>
+            </span>
+
+            <span>
+                Conexão segura // Aprendizado interativo
+            </span>
+        </div>
+    </footer>
+</body>
+</html>
