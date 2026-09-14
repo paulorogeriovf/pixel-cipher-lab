@@ -436,10 +436,3 @@ ul {
         transition-duration: 0.01ms !important;
     }
 }
-
-.logo-image {
-    width: 66px;
-    height: 66px;
-    object-fit: contain;
-    filter: drop-shadow(0 0 8px rgba(0, 255, 102, 0.45));
-}
