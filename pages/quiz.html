@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Teste seus conhecimentos sobre imagens digitais, filtros, criptografia e esteganografia."
+    >
+
+    <title>Quiz | PixelCipher Lab</title>
+
+    <link
+        rel="icon"
+        type="image/png"
+        href="../assets/icons/favicon.png"
+    >
+
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/conteudo.css">
+    <link rel="stylesheet" href="../css/quiz.css">
+
+    <script src="../js/main.js" defer></script>
+    <script src="../js/quiz.js" defer></script>
+</head>
+
+<body>
+    <header class="header scrolled">
+        <div class="container header-content">
+            <a href="../index.html" class="logo">
+                <span class="logo-symbol">&lt;/&gt;</span>
+
+                <span class="logo-text">
+                    PixelCipher
+                    <strong>Lab</strong>
+                </span>
+            </a>
+
+            <button
+                class="menu-button"
+                id="menu-button"
+                type="button"
+                aria-label="Abrir menu"
+                aria-expanded="false"
+                aria-controls="navigation"
+            >
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <nav class="navigation" id="navigation">
+                <a href="../index.html" class="nav-link">Início</a>
+
+                <a href="fundamentos.html" class="nav-link">
+                    Fundamentos
+                </a>
+
+                <a href="filtros.html" class="nav-link">
+                    Filtros
+                </a>
+
+                <a href="criptografia.html" class="nav-link">
+                    Criptografia
+                </a>
+
+                <a href="esteganografia.html" class="nav-link">
+                    Esteganografia
+                </a>
+
+                <a href="laboratorio.html" class="nav-link nav-highlight">
+                    Laboratório
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="quiz-hero">
+            <div class="container">
+                <div class="breadcrumb">
+                    <a href="../index.html">Início</a>
+                    <span>/</span>
+                    <span>Quiz</span>
+                </div>
+
+                <div class="quiz-hero-content">
+                    <span class="section-code">
+                        AVALIAÇÃO // 10 QUESTÕES
+                    </span>
+
+                    <h1>
+                        Teste seus
+                        <span>conhecimentos.</span>
+                    </h1>
+
+                    <p>
+                        Responda às questões sobre pixels, filtragem,
+                        criptografia e esteganografia. Ao final, você receberá
+                        sua pontuação e a explicação de cada resposta.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="quiz-section">
+            <div class="container">
+                <!-- Tela inicial -->
+                <section class="quiz-introduction" id="quiz-introduction">
+                    <div class="introduction-terminal">
+                        <div class="terminal-title">
+                            avaliacao.config
+                        </div>
+
+                        <div class="terminal-content">
+                            <p>
+                                <span>&gt;</span>
+                                questões: 10
+                            </p>
+
+                            <p>
+                                <span>&gt;</span>
+                                alternativas: 4 por questão
+                            </p>
+
+                            <p>
+                                <span>&gt;</span>
+                                resposta correta: única
+                            </p>
+
+                            <p>
+                                <span>&gt;</span>
+                                correção: automática
+                            </p>
+
+                            <p class="ready-message">
+                                [OK] Avaliação preparada.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="introduction-content">
+                        <span class="section-code">
+                            ANTES DE COMEÇAR
+                        </span>
+
+                        <h2>Como funciona?</h2>
+
+                        <ul>
+                            <li>
+                                Selecione uma resposta em cada questão.
+                            </li>
+
+                            <li>
+                                Após responder, veja imediatamente se acertou.
+                            </li>
+
+                            <li>
+                                Leia a explicação antes de avançar.
+                            </li>
+
+                            <li>
+                                Sua pontuação será apresentada ao final.
+                            </li>
+                        </ul>
+
+                        <button
+                            type="button"
+                            class="button button-primary"
+                            id="start-quiz-button"
+                        >
+                            Iniciar quiz
+                            <span>→</span>
+                        </button>
+                    </div>
+                </section>
+
+                <!-- Questões -->
+                <section class="quiz-interface hidden" id="quiz-interface">
+                    <aside class="quiz-sidebar">
+                        <span class="section-code">PROGRESSO</span>
+
+                        <div class="question-counter">
+                            <strong id="current-question-number">01</strong>
+                            <span>/ 10</span>
+                        </div>
+
+                        <div class="sidebar-progress">
+                            <span id="sidebar-progress-value"></span>
+                        </div>
+
+                        <p id="progress-description">
+                            Questão 1 de 10
+                        </p>
+
+                        <div
+                            class="question-navigation"
+                            id="question-navigation"
+                        ></div>
+
+                        <div class="score-preview">
+                            <span>ACERTOS</span>
+                            <strong id="current-score">0</strong>
+                        </div>
+                    </aside>
+
+                    <article class="question-card">
+                        <div class="question-header">
+                            <span id="question-category">
+                                FUNDAMENTOS
+                            </span>
+
+                            <span id="question-label">
+                                QUESTÃO 01
+                            </span>
+                        </div>
+
+                        <div class="question-content">
+                            <h2 id="question-text"></h2>
+
+                            <div
+                                class="answer-options"
+                                id="answer-options"
+                            ></div>
+
+                            <div
+                                class="answer-feedback hidden"
+                                id="answer-feedback"
+                            >
+                                <span id="feedback-status"></span>
+                                <p id="feedback-text"></p>
+                            </div>
+
+                            <button
+                                type="button"
+                                class="button button-primary next-question-button"
+                                id="next-question-button"
+                                disabled
+                            >
+                                Próxima questão
+                                <span>→</span>
+                            </button>
+                        </div>
+                    </article>
+                </section>
+
+                <!-- Resultado -->
+                <section class="quiz-result hidden" id="quiz-result">
+                    <div class="result-score">
+                        <span class="section-code">
+                            AVALIAÇÃO CONCLUÍDA
+                        </span>
+
+                        <div class="score-circle">
+                            <strong id="final-score">0</strong>
+                            <span>/ 10</span>
+                        </div>
+
+                        <h2 id="result-title">
+                            Resultado
+                        </h2>
+
+                        <p id="result-description"></p>
+
+                        <div class="result-percentage">
+                            <div>
+                                <span id="result-progress"></span>
+                            </div>
+
+                            <strong id="result-percentage-text">0%</strong>
+                        </div>
+
+                        <div class="result-actions">
+                            <button
+                                type="button"
+                                class="button button-primary"
+                                id="restart-quiz-button"
+                            >
+                                Refazer quiz
+                            </button>
+
+                            <a
+                                href="laboratorio.html"
+                                class="button button-secondary"
+                            >
+                                Abrir laboratório
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="answers-review">
+                        <div class="review-heading">
+                            <span class="section-code">
+                                REVISÃO
+                            </span>
+
+                            <h2>Confira suas respostas</h2>
+                        </div>
+
+                        <div id="review-list"></div>
+                    </div>
+                </section>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-content">
+            <a href="../index.html" class="logo footer-logo">
+                <span class="logo-symbol">&lt;/&gt;</span>
+
+                <span class="logo-text">
+                    PixelCipher
+                    <strong>Lab</strong>
+                </span>
+            </a>
+
+            <p>
+                Projeto acadêmico sobre processamento e segurança de imagens.
+            </p>
+
+            <nav class="footer-navigation">
+                <a href="quiz.html">Quiz</a>
+                <a href="sobre.html">Sobre</a>
+                <a href="laboratorio.html">Laboratório</a>
+            </nav>
+        </div>
+
+        <div class="container footer-bottom">
+            <span>
+                PixelCipher Lab ©
+                <span id="current-year"></span>
+            </span>
+
+            <span>
+                Conexão segura // Aprendizado interativo
+            </span>
+        </div>
+    </footer>
+</body>
+</html>
