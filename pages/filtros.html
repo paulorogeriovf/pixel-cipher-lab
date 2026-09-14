@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Laboratório interativo de filtros digitais do PixelCipher Lab."
+    >
+
+    <title>Filtros de Imagem | PixelCipher Lab</title>
+
+    <!-- Basta salvar futuramente a imagem como assets/icons/favicon.png -->
+    <link
+        rel="icon"
+        type="image/png"
+        href="../assets/icons/favicon.png"
+    >
+
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/conteudo.css">
+    <link rel="stylesheet" href="../css/filtros.css">
+
+    <script src="../js/main.js" defer></script>
+    <script src="../js/filtros.js" defer></script>
+</head>
+
+<body>
+    <header class="header scrolled">
+        <div class="container header-content">
+            <a href="../index.html" class="logo">
+                <span class="logo-symbol">&lt;/&gt;</span>
+
+                <span class="logo-text">
+                    PixelCipher
+                    <strong>Lab</strong>
+                </span>
+            </a>
+
+            <button
+                class="menu-button"
+                id="menu-button"
+                type="button"
+                aria-label="Abrir menu"
+                aria-expanded="false"
+                aria-controls="navigation"
+            >
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <nav class="navigation" id="navigation">
+                <a href="../index.html" class="nav-link">
+                    Início
+                </a>
+
+                <a href="fundamentos.html" class="nav-link">
+                    Fundamentos
+                </a>
+
+                <a href="filtros.html" class="nav-link active">
+                    Filtros
+                </a>
+
+                <a href="criptografia.html" class="nav-link">
+                    Criptografia
+                </a>
+
+                <a href="esteganografia.html" class="nav-link">
+                    Esteganografia
+                </a>
+
+                <a href="laboratorio.html" class="nav-link nav-highlight">
+                    Laboratório
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Apresentação -->
+        <section class="content-hero filters-hero">
+            <div class="container">
+                <div class="breadcrumb">
+                    <a href="../index.html">Início</a>
+                    <span>/</span>
+                    <span>Filtros</span>
+                </div>
+
+                <div class="content-hero-grid">
+                    <div>
+                        <span class="section-code">
+                            MÓDULO 02 // FILTRAGEM
+                        </span>
+
+                        <h1>
+                            Transforme uma imagem
+                            <span>pixel por pixel.</span>
+                        </h1>
+
+                        <p>
+                            Envie uma imagem, aplique diferentes filtros
+                            digitais e observe como operações matemáticas
+                            alteram seus pixels.
+                        </p>
+                    </div>
+
+                    <aside class="module-summary">
+                        <span class="summary-status">
+                            PROCESSAMENTO LOCAL
+                        </span>
+
+                        <h2>Privacidade</h2>
+
+                        <ul>
+                            <li>
+                                <span>01</span>
+                                Imagem processada no navegador
+                            </li>
+
+                            <li>
+                                <span>02</span>
+                                Nenhum arquivo enviado
+                            </li>
+
+                            <li>
+                                <span>03</span>
+                                Resultado disponível para download
+                            </li>
+                        </ul>
+                    </aside>
+                </div>
+            </div>
+        </section>
+
+        <!-- Explicação -->
+        <section class="content-section">
+            <div class="container">
+                <div class="chapter-heading">
+                    <span class="chapter-number">01</span>
+
+                    <div>
+                        <span class="section-code">CONCEITO</span>
+                        <h2>O que é filtragem de imagem?</h2>
+                    </div>
+                </div>
+
+                <div class="text-grid">
+                    <article class="text-card">
+                        <h3>Alteração dos pixels</h3>
+
+                        <p>
+                            Um filtro digital é uma operação aplicada aos
+                            pixels de uma imagem. Dependendo do algoritmo,
+                            podemos modificar cores, luminosidade, contraste
+                            ou até destacar contornos.
+                        </p>
+
+                        <p>
+                            Alguns filtros analisam cada pixel separadamente.
+                            Outros consideram também os pixels vizinhos por
+                            meio de uma matriz chamada kernel.
+                        </p>
+                    </article>
+
+                    <article class="terminal-explanation">
+                        <div class="mini-terminal-header">
+                            filtro_cinza.js
+                        </div>
+
+                        <div class="mini-terminal-body">
+                            <p>
+                                <span>&gt;</span>
+                                cinza = 0.299 × R
+                            </p>
+
+                            <p>
+                                <span>&gt;</span>
+                                + 0.587 × G
+                            </p>
+
+                            <p>
+                                <span>&gt;</span>
+                                + 0.114 × B
+                            </p>
+
+                            <p class="terminal-success">
+                                [OK] Novos canais calculados.
+                            </p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Laboratório -->
+        <section class="content-section filter-laboratory-section">
+            <div class="container">
+                <div class="chapter-heading">
+                    <span class="chapter-number">02</span>
+
+                    <div>
+                        <span class="section-code">
+                            LABORATÓRIO INTERATIVO
+                        </span>
+
+                        <h2>Teste os filtros</h2>
+                    </div>
+                </div>
+
+                <div class="privacy-notice">
+                    <span class="privacy-status"></span>
+
+                    <p>
+                        Sua imagem permanece no dispositivo e não é enviada
+                        para nenhum servidor.
+                    </p>
+                </div>
+
+                <!-- Upload -->
+                <div class="upload-area" id="upload-area">
+                    <input
+                        type="file"
+                        id="image-input"
+                        accept="image/png, image/jpeg, image/webp"
+                        hidden
+                    >
+
+                    <div class="upload-icon" aria-hidden="true">
+                        [IMG]
+                    </div>
+
+                    <h3>Selecione uma imagem</h3>
+
+                    <p>
+                        Arraste uma imagem para esta área ou clique para
+                        procurar no dispositivo.
+                    </p>
+
+                    <span>PNG, JPEG ou WEBP • máximo de 15 MB</span>
+
+                    <button
+                        class="button button-primary"
+                        id="select-image-button"
+                        type="button"
+                    >
+                        Escolher imagem
+                    </button>
+                </div>
+
+                <!-- Aplicação -->
+                <div class="filter-workspace hidden" id="filter-workspace">
+                    <aside class="filters-panel">
+                        <div class="panel-title">
+                            <div>
+                                <span class="section-code">
+                                    CONTROLES
+                                </span>
+
+                                <h3>Filtros disponíveis</h3>
+                            </div>
+
+                            <span class="online-label">ONLINE</span>
+                        </div>
+
+                        <div class="filter-buttons">
+                            <button
+                                class="filter-button active"
+                                type="button"
+                                data-filter="original"
+                            >
+                                <span>[00]</span>
+                                Original
+                            </button>
+
+                            <button
+                                class="filter-button"
+                                type="button"
+                                data-filter="grayscale"
+                            >
+                                <span>[01]</span>
+                                Escala de cinza
+                            </button>
+
+                            <button
+                                class="filter-button"
+                                type="button"
+                                data-filter="threshold"
+                            >
+                                <span>[02]</span>
+                                Preto e branco
+                            </button>
+
+                            <button
+                                class="filter-button"
+                                type="button"
+                                data-filter="negative"
+                            >
+                                <span>[03]</span>
+                                Negativo
+                            </button>
+
+                            <button
+                                class="filter-button"
+                                type="button"
+                                data-filter="sepia"
+                            >
+                                <span>[04]</span>
+                                Sépia
+                            </button>
+
+                            <button
+                                class="filter-button"
+                                type="button"
+                                data-filter="red"
+                            >
+                                <span>[R]</span>
+                                Canal vermelho
+                            </button>
+
+                            <button
+                                class="filter-button"
+                                type="button"
+                                data-filter="green"
+                            >
+                                <span>[G]</span>
+                                Canal verde
+                            </button>
+
+                            <button
+                                class="filter-button"
+                                type="button"
+                                data-filter="blue"
+                            >
+                                <span>[B]</span>
+                                Canal azul
+                            </button>
+
+                            <button
+                                class="filter-button"
+                                type="button"
+                                data-filter="blur"
+                            >
+                                <span>[05]</span>
+                                Desfoque
+                            </button>
+
+                            <button
+                                class="filter-button"
+                                type="button"
+                                data-filter="sharpen"
+                            >
+                                <span>[06]</span>
+                                Nitidez
+                            </button>
+
+                            <button
+                                class="filter-button"
+                                type="button"
+                                data-filter="edges"
+                            >
+                                <span>[07]</span>
+                                Detectar bordas
+                            </button>
+                        </div>
+
+                        <div class="range-controls">
+                            <label class="range-control" for="brightness-range">
+                                <span>
+                                    Brilho
+                                    <output id="brightness-value">0</output>
+                                </span>
+
+                                <input
+                                    type="range"
+                                    id="brightness-range"
+                                    min="-100"
+                                    max="100"
+                                    value="0"
+                                >
+                            </label>
+
+                            <label class="range-control" for="contrast-range">
+                                <span>
+                                    Contraste
+                                    <output id="contrast-value">0</output>
+                                </span>
+
+                                <input
+                                    type="range"
+                                    id="contrast-range"
+                                    min="-100"
+                                    max="100"
+                                    value="0"
+                                >
+                            </label>
+
+                            <label
+                                class="range-control threshold-control hidden"
+                                id="threshold-control"
+                                for="threshold-range"
+                            >
+                                <span>
+                                    Limite
+                                    <output id="threshold-value">128</output>
+                                </span>
+
+                                <input
+                                    type="range"
+                                    id="threshold-range"
+                                    min="0"
+                                    max="255"
+                                    value="128"
+                                >
+                            </label>
+                        </div>
+
+                        <div class="panel-actions">
+                            <button
+                                class="button button-secondary"
+                                id="reset-button"
+                                type="button"
+                            >
+                                Restaurar
+                            </button>
+
+                            <button
+                                class="button button-primary"
+                                id="download-button"
+                                type="button"
+                            >
+                                Baixar resultado
+                            </button>
+                        </div>
+                    </aside>
+
+                    <div class="image-workspace">
+                        <div class="file-information">
+                            <div>
+                                <small>ARQUIVO</small>
+                                <strong id="file-name">imagem.png</strong>
+                            </div>
+
+                            <div>
+                                <small>RESOLUÇÃO</small>
+                                <strong id="image-resolution">0 × 0</strong>
+                            </div>
+
+                            <div>
+                                <small>FILTRO</small>
+                                <strong id="current-filter">Original</strong>
+                            </div>
+
+                            <button
+                                id="change-image-button"
+                                class="change-image-button"
+                                type="button"
+                            >
+                                Trocar imagem
+                            </button>
+                        </div>
+
+                        <div class="comparison-grid">
+                            <article class="image-panel">
+                                <div class="image-panel-header">
+                                    <span>ORIGINAL</span>
+                                    <span>entrada</span>
+                                </div>
+
+                                <div class="canvas-wrapper">
+                                    <canvas id="original-canvas"></canvas>
+                                </div>
+                            </article>
+
+                            <article class="image-panel result-panel">
+                                <div class="image-panel-header">
+                                    <span>RESULTADO</span>
+                                    <span id="processing-status">
+                                        processado
+                                    </span>
+                                </div>
+
+                                <div class="canvas-wrapper">
+                                    <canvas id="result-canvas"></canvas>
+                                </div>
+                            </article>
+                        </div>
+
+                        <div class="processing-message" id="processing-message">
+                            <span>&gt;</span>
+                            <p>
+                                Selecione um filtro para alterar a imagem.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div
+                    class="error-message hidden"
+                    id="error-message"
+                    role="alert"
+                ></div>
+            </div>
+        </section>
+
+        <!-- Tipos de filtros -->
+        <section class="content-section alternate-section">
+            <div class="container">
+                <div class="chapter-heading">
+                    <span class="chapter-number">03</span>
+
+                    <div>
+                        <span class="section-code">
+                            CLASSIFICAÇÃO
+                        </span>
+
+                        <h2>Como os filtros funcionam?</h2>
+                    </div>
+                </div>
+
+                <div class="filter-theory-grid">
+                    <article class="filter-theory-card">
+                        <span class="theory-label">PONTO A PONTO</span>
+
+                        <h3>Filtros de cor</h3>
+
+                        <p>
+                            Modificam cada pixel individualmente, sem precisar
+                            analisar os pixels vizinhos.
+                        </p>
+
+                        <ul>
+                            <li>Escala de cinza</li>
+                            <li>Negativo</li>
+                            <li>Brilho e contraste</li>
+                            <li>Separação RGB</li>
+                        </ul>
+                    </article>
+
+                    <article class="filter-theory-card">
+                        <span class="theory-label">KERNEL</span>
+
+                        <h3>Filtros espaciais</h3>
+
+                        <p>
+                            Utilizam uma pequena matriz para calcular o novo
+                            valor com base nos pixels próximos.
+                        </p>
+
+                        <ul>
+                            <li>Desfoque</li>
+                            <li>Nitidez</li>
+                            <li>Detecção de bordas</li>
+                        </ul>
+                    </article>
+
+                    <article class="kernel-card">
+                        <span class="theory-label">EXEMPLO DE KERNEL</span>
+
+                        <h3>Detecção de bordas</h3>
+
+                        <div class="kernel-grid" aria-label="Matriz de kernel">
+                            <span>-1</span>
+                            <span>-1</span>
+                            <span>-1</span>
+                            <span>-1</span>
+                            <span class="kernel-center">8</span>
+                            <span>-1</span>
+                            <span>-1</span>
+                            <span>-1</span>
+                            <span>-1</span>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Próximo módulo -->
+        <section class="next-module-section">
+            <div class="container next-module-card">
+                <div>
+                    <span class="section-code">
+                        PRÓXIMO MÓDULO
+                    </span>
+
+                    <h2>Como proteger uma mensagem?</h2>
+
+                    <p>
+                        Agora que entendemos como uma imagem pode ser
+                        modificada, vamos conhecer os fundamentos da
+                        criptografia.
+                    </p>
+                </div>
+
+                <a href="criptografia.html" class="button button-primary">
+                    Ir para criptografia
+                    <span>→</span>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-content">
+            <a href="../index.html" class="logo footer-logo">
+                <span class="logo-symbol">&lt;/&gt;</span>
+
+                <span class="logo-text">
+                    PixelCipher
+                    <strong>Lab</strong>
+                </span>
+            </a>
+
+            <p>
+                Projeto acadêmico sobre processamento e segurança de imagens.
+            </p>
+
+            <nav class="footer-navigation">
+                <a href="quiz.html">Quiz</a>
+                <a href="sobre.html">Sobre</a>
+                <a href="laboratorio.html">Laboratório</a>
+            </nav>
+        </div>
+
+        <div class="container footer-bottom">
+            <span>
+                PixelCipher Lab ©
+                <span id="current-year"></span>
+            </span>
+
+            <span>
+                Conexão segura // Aprendizado interativo
+            </span>
+        </div>
+    </footer>
+</body>
+</html>
