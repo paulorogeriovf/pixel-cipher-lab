@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Laboratório do PixelCipher Lab para criptografar e esconder mensagens em imagens."
+    >
+
+    <title>Laboratório | PixelCipher Lab</title>
+
+    <link
+        rel="icon"
+        type="image/png"
+        href="../assets/icons/favicon.png"
+    >
+
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/conteudo.css">
+    <link rel="stylesheet" href="../css/laboratorio.css">
+
+    <script src="../js/main.js" defer></script>
+    <script src="../js/laboratorio.js" defer></script>
+</head>
+
+<body>
+    <header class="header scrolled">
+        <div class="container header-content">
+            <a href="../index.html" class="logo">
+                <span class="logo-symbol">&lt;/&gt;</span>
+
+                <span class="logo-text">
+                    PixelCipher
+                    <strong>Lab</strong>
+                </span>
+            </a>
+
+            <button
+                class="menu-button"
+                id="menu-button"
+                type="button"
+                aria-label="Abrir menu"
+                aria-expanded="false"
+                aria-controls="navigation"
+            >
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <nav class="navigation" id="navigation">
+                <a href="../index.html" class="nav-link">Início</a>
+
+                <a href="fundamentos.html" class="nav-link">
+                    Fundamentos
+                </a>
+
+                <a href="filtros.html" class="nav-link">
+                    Filtros
+                </a>
+
+                <a href="criptografia.html" class="nav-link">
+                    Criptografia
+                </a>
+
+                <a href="esteganografia.html" class="nav-link">
+                    Esteganografia
+                </a>
+
+                <a
+                    href="laboratorio.html"
+                    class="nav-link nav-highlight active"
+                >
+                    Laboratório
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Apresentação -->
+        <section class="laboratory-hero">
+            <div class="container">
+                <div class="breadcrumb">
+                    <a href="../index.html">Início</a>
+                    <span>/</span>
+                    <span>Laboratório</span>
+                </div>
+
+                <div class="laboratory-hero-content">
+                    <span class="section-code">
+                        SISTEMA PRINCIPAL // ONLINE
+                    </span>
+
+                    <h1>
+                        Laboratório
+                        <span>PixelCipher</span>
+                    </h1>
+
+                    <p>
+                        Proteja uma mensagem com criptografia AES e esconda
+                        o resultado dentro dos pixels de uma imagem.
+                    </p>
+
+                    <div class="security-indicators">
+                        <span>
+                            <strong>AES</strong>
+                            criptografia
+                        </span>
+
+                        <span>
+                            <strong>256</strong>
+                            bits
+                        </span>
+
+                        <span>
+                            <strong>LSB</strong>
+                            ocultação
+                        </span>
+
+                        <span>
+                            <strong>LOCAL</strong>
+                            processamento
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Fluxo -->
+        <section class="laboratory-flow-section">
+            <div class="container">
+                <div class="laboratory-flow">
+                    <div>
+                        <span>01</span>
+                        <strong>Mensagem</strong>
+                    </div>
+
+                    <span class="flow-connector">→</span>
+
+                    <div>
+                        <span>02</span>
+                        <strong>Criptografia</strong>
+                    </div>
+
+                    <span class="flow-connector">→</span>
+
+                    <div>
+                        <span>03</span>
+                        <strong>Esteganografia</strong>
+                    </div>
+
+                    <span class="flow-connector">→</span>
+
+                    <div>
+                        <span>04</span>
+                        <strong>Imagem protegida</strong>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Ferramenta -->
+        <section class="laboratory-section">
+            <div class="container">
+                <div class="laboratory-tabs">
+                    <button
+                        type="button"
+                        class="laboratory-tab active"
+                        data-mode="protect"
+                    >
+                        <span>[01]</span>
+                        Proteger e esconder
+                    </button>
+
+                    <button
+                        type="button"
+                        class="laboratory-tab"
+                        data-mode="recover"
+                    >
+                        <span>[02]</span>
+                        Extrair e recuperar
+                    </button>
+                </div>
+
+                <!-- Proteger -->
+                <section class="laboratory-panel" id="protect-panel">
+                    <div class="panel-heading">
+                        <div>
+                            <span class="section-code">
+                                OPERAÇÃO 01
+                            </span>
+
+                            <h2>Esconder mensagem protegida</h2>
+
+                            <p>
+                                Selecione uma imagem, escreva uma mensagem e
+                                defina a senha que será necessária para
+                                recuperá-la.
+                            </p>
+                        </div>
+
+                        <span class="system-online">
+                            <i></i>
+                            SISTEMA PRONTO
+                        </span>
+                    </div>
+
+                    <div class="operation-grid">
+                        <!-- Etapa 1 -->
+                        <article class="operation-card">
+                            <div class="operation-header">
+                                <span>ETAPA 01</span>
+                                <strong>Imagem</strong>
+                            </div>
+
+                            <div class="operation-content">
+                                <input
+                                    type="file"
+                                    id="protect-image-input"
+                                    accept="image/png,image/jpeg,image/webp"
+                                    hidden
+                                >
+
+                                <button
+                                    type="button"
+                                    class="upload-button"
+                                    id="protect-image-button"
+                                >
+                                    <span class="upload-symbol">[IMG]</span>
+
+                                    <span>
+                                        <strong>Selecionar imagem</strong>
+                                        <small>PNG, JPEG ou WEBP</small>
+                                    </span>
+                                </button>
+
+                                <div
+                                    class="image-preview hidden"
+                                    id="protect-image-preview"
+                                >
+                                    <canvas id="protect-canvas"></canvas>
+
+                                    <div class="preview-information">
+                                        <span id="protect-file-name">
+                                            imagem.png
+                                        </span>
+
+                                        <span id="protect-resolution">
+                                            0 × 0
+                                        </span>
+                                    </div>
+                                </div>
+
+                                <div class="capacity-data">
+                                    <span>Capacidade aproximada</span>
+
+                                    <strong id="protect-capacity">
+                                        0 bytes
+                                    </strong>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Etapa 2 -->
+                        <article class="operation-card">
+                            <div class="operation-header">
+                                <span>ETAPA 02</span>
+                                <strong>Mensagem</strong>
+                            </div>
+
+                            <div class="operation-content">
+                                <label for="protect-message">
+                                    Conteúdo secreto
+                                </label>
+
+                                <textarea
+                                    id="protect-message"
+                                    rows="8"
+                                    maxlength="5000"
+                                    placeholder="Digite a mensagem que deseja proteger..."
+                                ></textarea>
+
+                                <div class="message-information">
+                                    <span>
+                                        <strong id="protect-character-count">
+                                            0
+                                        </strong>/5000 caracteres
+                                    </span>
+
+                                    <span id="message-size">
+                                        0 bytes
+                                    </span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Etapa 3 -->
+                        <article class="operation-card">
+                            <div class="operation-header">
+                                <span>ETAPA 03</span>
+                                <strong>Senha</strong>
+                            </div>
+
+                            <div class="operation-content">
+                                <label for="protect-password">
+                                    Chave de proteção
+                                </label>
+
+                                <div class="password-field">
+                                    <input
+                                        type="password"
+                                        id="protect-password"
+                                        autocomplete="new-password"
+                                        placeholder="Mínimo de 8 caracteres"
+                                    >
+
+                                    <button
+                                        type="button"
+                                        class="show-password-button"
+                                        data-target="protect-password"
+                                    >
+                                        Mostrar
+                                    </button>
+                                </div>
+
+                                <label for="confirm-password">
+                                    Confirmar senha
+                                </label>
+
+                                <div class="password-field">
+                                    <input
+                                        type="password"
+                                        id="confirm-password"
+                                        autocomplete="new-password"
+                                        placeholder="Digite novamente"
+                                    >
+
+                                    <button
+                                        type="button"
+                                        class="show-password-button"
+                                        data-target="confirm-password"
+                                    >
+                                        Mostrar
+                                    </button>
+                                </div>
+
+                                <div class="password-strength">
+                                    <div>
+                                        <span id="password-progress"></span>
+                                    </div>
+
+                                    <small id="password-strength-text">
+                                        Informe uma senha
+                                    </small>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+
+                    <button
+                        type="button"
+                        class="button button-primary execute-button"
+                        id="protect-button"
+                    >
+                        Executar proteção completa
+                        <span>→</span>
+                    </button>
+
+                    <!-- Progresso -->
+                    <div
+                        class="process-progress hidden"
+                        id="process-progress"
+                    >
+                        <div class="progress-header">
+                            <span>PROCESSANDO</span>
+                            <strong id="progress-percentage">0%</strong>
+                        </div>
+
+                        <div class="progress-bar">
+                            <span id="progress-bar-value"></span>
+                        </div>
+
+                        <div class="progress-steps">
+                            <span id="step-validate">
+                                Validando dados
+                            </span>
+
+                            <span id="step-encrypt">
+                                Criptografando
+                            </span>
+
+                            <span id="step-hide">
+                                Inserindo nos pixels
+                            </span>
+
+                            <span id="step-complete">
+                                Finalizando
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- Resultado -->
+                    <div
+                        class="protection-result hidden"
+                        id="protection-result"
+                    >
+                        <div class="result-preview">
+                            <div class="result-header">
+                                <span>RESULTADO FINAL</span>
+                                <span>imagem-protegida.png</span>
+                            </div>
+
+                            <canvas id="protected-result-canvas"></canvas>
+                        </div>
+
+                        <div class="result-details">
+                            <span class="result-success">
+                                OPERAÇÃO CONCLUÍDA
+                            </span>
+
+                            <h3>Mensagem protegida e escondida</h3>
+
+                            <p>
+                                A mensagem foi criptografada antes de ser
+                                inserida nos pixels da imagem.
+                            </p>
+
+                            <dl>
+                                <div>
+                                    <dt>Criptografia</dt>
+                                    <dd>AES-GCM 256 bits</dd>
+                                </div>
+
+                                <div>
+                                    <dt>Esteganografia</dt>
+                                    <dd>LSB nos canais RGB</dd>
+                                </div>
+
+                                <div>
+                                    <dt>Canais modificados</dt>
+                                    <dd id="result-changed-channels">0</dd>
+                                </div>
+
+                                <div>
+                                    <dt>Formato final</dt>
+                                    <dd>PNG sem perdas</dd>
+                                </div>
+                            </dl>
+
+                            <button
+                                type="button"
+                                class="button button-primary download-button"
+                                id="download-protected-button"
+                            >
+                                Baixar imagem protegida
+                            </button>
+
+                            <button
+                                type="button"
+                                class="restart-button"
+                                id="restart-protection-button"
+                            >
+                                Criar outra imagem
+                            </button>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Recuperar -->
+                <section
+                    class="laboratory-panel hidden"
+                    id="recover-panel"
+                >
+                    <div class="panel-heading">
+                        <div>
+                            <span class="section-code">
+                                OPERAÇÃO 02
+                            </span>
+
+                            <h2>Recuperar mensagem escondida</h2>
+
+                            <p>
+                                Selecione a imagem PNG gerada pelo laboratório
+                                e informe a senha utilizada na proteção.
+                            </p>
+                        </div>
+
+                        <span class="system-online">
+                            <i></i>
+                            EXTRAÇÃO PRONTA
+                        </span>
+                    </div>
+
+                    <div class="recovery-grid">
+                        <article class="operation-card">
+                            <div class="operation-header">
+                                <span>ETAPA 01</span>
+                                <strong>Imagem protegida</strong>
+                            </div>
+
+                            <div class="operation-content">
+                                <input
+                                    type="file"
+                                    id="recover-image-input"
+                                    accept="image/png"
+                                    hidden
+                                >
+
+                                <button
+                                    type="button"
+                                    class="upload-button"
+                                    id="recover-image-button"
+                                >
+                                    <span class="upload-symbol">[LSB]</span>
+
+                                    <span>
+                                        <strong>Selecionar imagem PNG</strong>
+                                        <small>
+                                            Utilize o arquivo original baixado
+                                        </small>
+                                    </span>
+                                </button>
+
+                                <div
+                                    class="image-preview hidden"
+                                    id="recover-image-preview"
+                                >
+                                    <canvas id="recover-canvas"></canvas>
+
+                                    <div class="preview-information">
+                                        <span id="recover-file-name">
+                                            imagem-protegida.png
+                                        </span>
+
+                                        <span id="recover-resolution">
+                                            0 × 0
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="operation-card">
+                            <div class="operation-header">
+                                <span>ETAPA 02</span>
+                                <strong>Senha</strong>
+                            </div>
+
+                            <div class="operation-content">
+                                <label for="recover-password">
+                                    Chave de recuperação
+                                </label>
+
+                                <div class="password-field">
+                                    <input
+                                        type="password"
+                                        id="recover-password"
+                                        autocomplete="current-password"
+                                        placeholder="Digite a senha utilizada"
+                                    >
+
+                                    <button
+                                        type="button"
+                                        class="show-password-button"
+                                        data-target="recover-password"
+                                    >
+                                        Mostrar
+                                    </button>
+                                </div>
+
+                                <p class="password-warning">
+                                    A senha precisa ser exatamente igual à
+                                    utilizada durante a proteção.
+                                </p>
+                            </div>
+                        </article>
+                    </div>
+
+                    <button
+                        type="button"
+                        class="button button-primary execute-button"
+                        id="recover-button"
+                    >
+                        Extrair e descriptografar
+                        <span>→</span>
+                    </button>
+
+                    <div
+                        class="recovered-result hidden"
+                        id="recovered-result"
+                    >
+                        <div class="result-header">
+                            <span>MENSAGEM RECUPERADA</span>
+                            <span>resultado.txt</span>
+                        </div>
+
+                        <div class="recovered-content">
+                            <textarea
+                                id="recovered-message"
+                                rows="9"
+                                readonly
+                            ></textarea>
+
+                            <div class="recovered-actions">
+                                <button
+                                    type="button"
+                                    class="button button-secondary"
+                                    id="copy-recovered-button"
+                                >
+                                    Copiar mensagem
+                                </button>
+
+                                <button
+                                    type="button"
+                                    class="restart-button"
+                                    id="restart-recovery-button"
+                                >
+                                    Extrair outra imagem
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <div
+                    class="laboratory-status hidden"
+                    id="laboratory-status"
+                    role="status"
+                ></div>
+            </div>
+        </section>
+
+        <!-- Informações -->
+        <section class="content-section alternate-section">
+            <div class="container">
+                <div class="chapter-heading">
+                    <span class="chapter-number">!</span>
+
+                    <div>
+                        <span class="section-code">IMPORTANTE</span>
+                        <h2>Como preservar a mensagem?</h2>
+                    </div>
+                </div>
+
+                <div class="laboratory-warnings">
+                    <article>
+                        <span>[PNG]</span>
+                        <h3>Mantenha o formato</h3>
+
+                        <p>
+                            Não converta a imagem para JPEG depois de
+                            realizar o download.
+                        </p>
+                    </article>
+
+                    <article>
+                        <span>[PIXEL]</span>
+                        <h3>Não edite a imagem</h3>
+
+                        <p>
+                            Recortes, filtros e redimensionamentos podem
+                            modificar os bits utilizados.
+                        </p>
+                    </article>
+
+                    <article>
+                        <span>[KEY]</span>
+                        <h3>Guarde a senha</h3>
+
+                        <p>
+                            O PixelCipher Lab não armazena nem consegue
+                            recuperar senhas esquecidas.
+                        </p>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-content">
+            <a href="../index.html" class="logo footer-logo">
+                <span class="logo-symbol">&lt;/&gt;</span>
+
+                <span class="logo-text">
+                    PixelCipher
+                    <strong>Lab</strong>
+                </span>
+            </a>
+
+            <p>
+                Projeto acadêmico sobre processamento e segurança de imagens.
+            </p>
+
+            <nav class="footer-navigation">
+                <a href="quiz.html">Quiz</a>
+                <a href="sobre.html">Sobre</a>
+                <a href="laboratorio.html">Laboratório</a>
+            </nav>
+        </div>
+
+        <div class="container footer-bottom">
+            <span>
+                PixelCipher Lab ©
+                <span id="current-year"></span>
+            </span>
+
+            <span>
+                Conexão segura // Aprendizado interativo
+            </span>
+        </div>
+    </footer>
+</body>
+</html>
