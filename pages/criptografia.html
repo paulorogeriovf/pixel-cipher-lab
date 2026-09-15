@@ -2,25 +2,16 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <meta
         name="description"
-        content="Aprenda criptografia e proteja mensagens diretamente no navegador com o PixelCipher Lab."
+        content="Aprenda como a criptografia funciona e experimente proteger mensagens com AES-GCM no navegador."
     >
 
     <title>Criptografia | PixelCipher Lab</title>
 
-    <link
-        rel="icon"
-        type="image/png"
-        href="../assets/icons/favicon.png"
-    >
-
+    <link rel="icon" type="image/png" href="../assets/icons/favicon.png">
     <link rel="stylesheet" href="../css/global.css">
     <link rel="stylesheet" href="../css/conteudo.css">
     <link rel="stylesheet" href="../css/criptografia.css">
@@ -36,8 +27,7 @@
                 <span class="logo-symbol">&lt;/&gt;</span>
 
                 <span class="logo-text">
-                    PixelCipher
-                    <strong>Lab</strong>
+                    PixelCipher <strong>Lab</strong>
                 </span>
             </a>
 
@@ -56,23 +46,14 @@
 
             <nav class="navigation" id="navigation">
                 <a href="../index.html" class="nav-link">Início</a>
-
-                <a href="fundamentos.html" class="nav-link">
-                    Fundamentos
-                </a>
-
-                <a href="filtros.html" class="nav-link">
-                    Filtros
-                </a>
-
+                <a href="fundamentos.html" class="nav-link">Fundamentos</a>
+                <a href="filtros.html" class="nav-link">Filtros</a>
                 <a href="criptografia.html" class="nav-link active">
                     Criptografia
                 </a>
-
                 <a href="esteganografia.html" class="nav-link">
                     Esteganografia
                 </a>
-
                 <a href="laboratorio.html" class="nav-link nav-highlight">
                     Laboratório
                 </a>
@@ -102,39 +83,24 @@
                         </h1>
 
                         <p>
-                            Entenda como a criptografia protege informações e
-                            experimente transformar uma mensagem em dados
-                            cifrados diretamente no navegador.
+                            Entenda como uma senha pode ser usada para
+                            gerar uma chave e experimente proteger uma
+                            mensagem diretamente no navegador.
                         </p>
                     </div>
 
                     <aside class="module-summary">
                         <span class="summary-status">
-                            AMBIENTE SEGURO
+                            PROCESSAMENTO LOCAL
                         </span>
 
                         <h2>Tecnologias utilizadas</h2>
 
                         <ul>
-                            <li>
-                                <span>01</span>
-                                AES-GCM
-                            </li>
-
-                            <li>
-                                <span>02</span>
-                                Chave de 256 bits
-                            </li>
-
-                            <li>
-                                <span>03</span>
-                                PBKDF2
-                            </li>
-
-                            <li>
-                                <span>04</span>
-                                Web Crypto API
-                            </li>
+                            <li><span>01</span> AES-GCM</li>
+                            <li><span>02</span> Chave de 256 bits</li>
+                            <li><span>03</span> PBKDF2</li>
+                            <li><span>04</span> Web Crypto API</li>
                         </ul>
                     </aside>
                 </div>
@@ -155,19 +121,28 @@
 
                 <div class="text-grid">
                     <article class="text-card">
-                        <h3>Proteção da informação</h3>
+                        <h3>Proteção do conteúdo</h3>
 
                         <p>
-                            Criptografia é o processo de transformar uma
-                            informação legível em dados aparentemente
-                            aleatórios. Para recuperar o conteúdo original,
-                            é necessário utilizar a chave correta.
+                            Criptografia transforma uma informação legível,
+                            chamada <strong>texto original</strong>, em dados
+                            cifrados. Para recuperar a informação, é
+                            necessário executar a operação inversa com
+                            a chave apropriada.
                         </p>
 
                         <p>
-                            Mesmo que uma pessoa tenha acesso ao texto
-                            criptografado, ela não deverá conseguir entender
-                            a mensagem sem possuir a senha.
+                            Neste laboratório usamos
+                            <strong>criptografia simétrica</strong>: a mesma
+                            chave serve para criptografar e descriptografar.
+                            O usuário informa uma senha, e o sistema deriva
+                            dela a chave que será usada pelo AES-GCM.
+                        </p>
+
+                        <p>
+                            Ter o texto cifrado não é suficiente para revelar
+                            a mensagem. A proteção, porém, também depende
+                            de escolher e preservar uma senha adequada.
                         </p>
                     </article>
 
@@ -188,7 +163,7 @@
 
                         <div class="flow-item">
                             <span>SAÍDA</span>
-                            <strong>8fB2z9Kx0a...</strong>
+                            <strong>Dados cifrados</strong>
                         </div>
                     </article>
                 </div>
@@ -197,9 +172,10 @@
                     <span class="information-icon">!</span>
 
                     <p>
-                        Criptografia não esconde a existência da mensagem.
-                        Ela protege seu conteúdo. A esteganografia, apresentada
-                        no próximo módulo, esconde a própria mensagem.
+                        A criptografia protege o <strong>conteúdo</strong>,
+                        mas não esconde que existem dados cifrados. No
+                        próximo módulo, a esteganografia mostrará como
+                        ocultar esses dados dentro de uma imagem.
                     </p>
                 </div>
             </div>
@@ -223,8 +199,8 @@
                         <h3>Texto original</h3>
 
                         <p>
-                            Informação legível antes da aplicação do
-                            algoritmo criptográfico.
+                            Mensagem legível antes de ser processada pelo
+                            algoritmo de criptografia.
                         </p>
 
                         <code>Olá, esta mensagem é secreta.</code>
@@ -232,14 +208,14 @@
 
                     <article class="concept-card">
                         <span class="concept-number">02</span>
-                        <h3>Chave</h3>
+                        <h3>Senha e chave</h3>
 
                         <p>
-                            Informação secreta utilizada para criptografar e
-                            recuperar o conteúdo.
+                            A senha é digitada pelo usuário; a chave de
+                            256 bits é derivada dela pelo PBKDF2.
                         </p>
 
-                        <code>••••••••••••</code>
+                        <code>Senha → PBKDF2 → chave AES</code>
                     </article>
 
                     <article class="concept-card">
@@ -247,12 +223,23 @@
                         <h3>Texto cifrado</h3>
 
                         <p>
-                            Resultado ilegível produzido pelo algoritmo de
-                            criptografia.
+                            Dados produzidos pelo AES-GCM, que não podem
+                            ser lidos como a mensagem original.
                         </p>
 
-                        <code>eyJzYWx0Ijoi...</code>
+                        <code>eyJ2ZXJzaW9uIjox...</code>
                     </article>
+                </div>
+
+                <div class="information-box">
+                    <span class="information-icon">i</span>
+
+                    <p>
+                        O texto mostrado no resultado é codificado em
+                        <strong>Base64</strong> para facilitar a cópia.
+                        Base64 não é criptografia: a proteção é realizada
+                        pelo AES-GCM antes dessa representação em texto.
+                    </p>
                 </div>
             </div>
         </section>
@@ -267,7 +254,6 @@
                         <span class="section-code">
                             EXPERIÊNCIA INTERATIVA
                         </span>
-
                         <h2>Laboratório de criptografia</h2>
                     </div>
                 </div>
@@ -276,8 +262,8 @@
                     <span class="privacy-status"></span>
 
                     <p>
-                        Todo o processo acontece localmente. A mensagem e a
-                        senha não são enviadas para nenhum servidor.
+                        A mensagem e a senha são processadas localmente no
+                        navegador; este laboratório não as envia a um servidor.
                     </p>
                 </div>
 
@@ -310,9 +296,7 @@
                         </div>
 
                         <div class="tool-body">
-                            <label for="encrypt-message">
-                                Mensagem
-                            </label>
+                            <label for="encrypt-message">Mensagem</label>
 
                             <textarea
                                 id="encrypt-message"
@@ -325,9 +309,7 @@
                                 <span id="encrypt-counter">0</span>/5000
                             </div>
 
-                            <label for="encrypt-password">
-                                Senha
-                            </label>
+                            <label for="encrypt-password">Senha</label>
 
                             <div class="password-field">
                                 <input
@@ -413,10 +395,7 @@
                 </section>
 
                 <!-- Descriptografar -->
-                <section
-                    class="crypto-tool hidden"
-                    id="decrypt-panel"
-                >
+                <section class="crypto-tool hidden" id="decrypt-panel">
                     <div class="tool-column">
                         <div class="tool-header">
                             <span>ENTRADA</span>
@@ -434,9 +413,7 @@
                                 placeholder="Cole aqui o conteúdo criptografado..."
                             ></textarea>
 
-                            <label for="decrypt-password">
-                                Senha
-                            </label>
+                            <label for="decrypt-password">Senha</label>
 
                             <div class="password-field">
                                 <input
@@ -516,10 +493,22 @@
                     id="crypto-status"
                     role="status"
                 ></div>
+
+                <div class="information-box">
+                    <span class="information-icon">!</span>
+
+                    <p>
+                        Para testar, copie o resultado, abra a aba
+                        <strong>Descriptografar</strong> e use a mesma senha.
+                        Depois tente uma senha diferente: o AES-GCM rejeitará
+                        a operação. Este site não armazena a senha nem pode
+                        recuperar uma senha esquecida.
+                    </p>
+                </div>
             </div>
         </section>
 
-        <!-- AES -->
+        <!-- Implementação -->
         <section class="content-section alternate-section">
             <div class="container">
                 <div class="chapter-heading">
@@ -529,7 +518,6 @@
                         <span class="section-code">
                             IMPLEMENTAÇÃO
                         </span>
-
                         <h2>O que acontece no laboratório?</h2>
                     </div>
                 </div>
@@ -540,8 +528,9 @@
                         <h3>Salt aleatório</h3>
 
                         <p>
-                            O sistema gera dados aleatórios para que a mesma
-                            senha produza chaves diferentes.
+                            Um salt novo é gerado para cada operação.
+                            Ele participa da derivação da chave e não
+                            precisa ser mantido em segredo.
                         </p>
                     </article>
 
@@ -550,18 +539,18 @@
                         <h3>Derivação da chave</h3>
 
                         <p>
-                            O PBKDF2 transforma a senha em uma chave
-                            criptográfica de 256 bits.
+                            O PBKDF2 combina senha e salt para derivar
+                            uma chave AES de 256 bits.
                         </p>
                     </article>
 
                     <article>
                         <span>03</span>
-                        <h3>Criptografia</h3>
+                        <h3>Criptografia autenticada</h3>
 
                         <p>
-                            O AES-GCM protege a mensagem e permite verificar
-                            se os dados foram modificados.
+                            O AES-GCM cifra a mensagem e verifica se a
+                            senha e os dados apresentados são compatíveis.
                         </p>
                     </article>
 
@@ -570,8 +559,89 @@
                         <h3>Pacote final</h3>
 
                         <p>
-                            Salt, vetor de inicialização e texto cifrado são
-                            reunidos para permitir a recuperação.
+                            O resultado inclui salt, IV e dados cifrados.
+                            Essas informações permitem tentar a recuperação
+                            com a senha correta.
+                        </p>
+                    </article>
+                </div>
+
+                <div class="information-box">
+                    <span class="information-icon">i</span>
+
+                    <p>
+                        O <strong>IV</strong> é um valor de inicialização
+                        gerado aleatoriamente para a operação AES-GCM.
+                        Assim como o salt, ele acompanha o resultado e
+                        não é a senha. A senha não aparece nesse pacote.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Código e aplicações -->
+        <section class="content-section">
+            <div class="container">
+                <div class="chapter-heading">
+                    <span class="chapter-number">05</span>
+
+                    <div>
+                        <span class="section-code">
+                            CÓDIGO E APLICAÇÕES
+                        </span>
+                        <h2>Onde essa proteção é útil?</h2>
+                    </div>
+                </div>
+
+                <div class="text-grid">
+                    <article class="text-card">
+                        <h3>A operação no JavaScript</h3>
+
+                        <p>
+                            Após derivar a chave a partir da senha, o
+                            navegador usa a Web Crypto API para cifrar
+                            os bytes da mensagem:
+                        </p>
+
+                        <pre style="margin-top: 18px; padding: 18px; overflow-x: auto; border: 1px solid var(--border); border-radius: 5px; background: #050906; color: var(--primary); font-family: var(--font-code); font-size: 0.78rem; line-height: 1.65;"><code>const dadosCifrados =
+    await crypto.subtle.encrypt(
+        {
+            name: "AES-GCM",
+            iv: vetorInicializacao
+        },
+        chaveDerivada,
+        new TextEncoder().encode(mensagem)
+    );</code></pre>
+
+                        <p>
+                            O trecho representa a etapa de cifragem
+                            implementada em <code>js/criptografia.js</code>.
+                            Na operação inversa, o navegador usa
+                            <code>crypto.subtle.decrypt()</code>.
+                        </p>
+                    </article>
+
+                    <article class="text-card">
+                        <h3>Aplicações e limites</h3>
+
+                        <p>
+                            Criptografia é usada para proteger informações
+                            em comunicação digital e armazenamento de dados.
+                            No nosso projeto, ela protege uma mensagem
+                            <strong>antes</strong> de inseri-la na imagem.
+                        </p>
+
+                        <p>
+                            Uma senha curta ou previsível enfraquece a
+                            proteção. Além disso, criptografar não impede
+                            que alguém veja, copie ou apague os dados cifrados.
+                        </p>
+
+                        <p>
+                            Por isso, este laboratório é uma demonstração
+                            educacional: ele explica princípios importantes,
+                            mas não substitui uma solução profissional para
+                            armazenar documentos sensíveis.
                         </p>
                     </article>
                 </div>
@@ -587,14 +657,13 @@
                     <h2>Como esconder a mensagem protegida?</h2>
 
                     <p>
-                        No próximo módulo, veremos como inserir dados nos bits
-                        menos significativos dos pixels.
+                        No próximo módulo, veremos como inserir dados nos
+                        bits menos significativos dos pixels.
                     </p>
                 </div>
 
                 <a href="esteganografia.html" class="button button-primary">
-                    Ir para esteganografia
-                    <span>→</span>
+                    Ir para esteganografia <span>→</span>
                 </a>
             </div>
         </section>
@@ -606,8 +675,7 @@
                 <span class="logo-symbol">&lt;/&gt;</span>
 
                 <span class="logo-text">
-                    PixelCipher
-                    <strong>Lab</strong>
+                    PixelCipher <strong>Lab</strong>
                 </span>
             </a>
 
@@ -624,13 +692,9 @@
 
         <div class="container footer-bottom">
             <span>
-                PixelCipher Lab ©
-                <span id="current-year"></span>
+                PixelCipher Lab © <span id="current-year"></span>
             </span>
-
-            <span>
-                Conexão segura // Aprendizado interativo
-            </span>
+            <span>Conexão segura // Aprendizado interativo</span>
         </div>
     </footer>
 </body>

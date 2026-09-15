@@ -2,26 +2,16 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <meta
         name="description"
-        content="Laboratório interativo de filtros digitais do PixelCipher Lab."
+        content="Aprenda filtragem de imagens e experimente filtros digitais diretamente no navegador."
     >
 
     <title>Filtros de Imagem | PixelCipher Lab</title>
 
-    <!-- Basta salvar futuramente a imagem como assets/icons/favicon.png -->
-    <link
-        rel="icon"
-        type="image/png"
-        href="../assets/icons/favicon.png"
-    >
-
+    <link rel="icon" type="image/png" href="../assets/icons/favicon.png">
     <link rel="stylesheet" href="../css/global.css">
     <link rel="stylesheet" href="../css/conteudo.css">
     <link rel="stylesheet" href="../css/filtros.css">
@@ -37,8 +27,7 @@
                 <span class="logo-symbol">&lt;/&gt;</span>
 
                 <span class="logo-text">
-                    PixelCipher
-                    <strong>Lab</strong>
+                    PixelCipher <strong>Lab</strong>
                 </span>
             </a>
 
@@ -56,26 +45,11 @@
             </button>
 
             <nav class="navigation" id="navigation">
-                <a href="../index.html" class="nav-link">
-                    Início
-                </a>
-
-                <a href="fundamentos.html" class="nav-link">
-                    Fundamentos
-                </a>
-
-                <a href="filtros.html" class="nav-link active">
-                    Filtros
-                </a>
-
-                <a href="criptografia.html" class="nav-link">
-                    Criptografia
-                </a>
-
-                <a href="esteganografia.html" class="nav-link">
-                    Esteganografia
-                </a>
-
+                <a href="../index.html" class="nav-link">Início</a>
+                <a href="fundamentos.html" class="nav-link">Fundamentos</a>
+                <a href="filtros.html" class="nav-link active">Filtros</a>
+                <a href="criptografia.html" class="nav-link">Criptografia</a>
+                <a href="esteganografia.html" class="nav-link">Esteganografia</a>
                 <a href="laboratorio.html" class="nav-link nav-highlight">
                     Laboratório
                 </a>
@@ -105,9 +79,9 @@
                         </h1>
 
                         <p>
-                            Envie uma imagem, aplique diferentes filtros
-                            digitais e observe como operações matemáticas
-                            alteram seus pixels.
+                            Escolha uma imagem, aplique filtros digitais e
+                            observe como diferentes operações alteram cores,
+                            luminosidade, detalhes e contornos.
                         </p>
                     </div>
 
@@ -139,7 +113,7 @@
             </div>
         </section>
 
-        <!-- Explicação -->
+        <!-- Conceitos -->
         <section class="content-section">
             <div class="container">
                 <div class="chapter-heading">
@@ -156,16 +130,24 @@
                         <h3>Alteração dos pixels</h3>
 
                         <p>
-                            Um filtro digital é uma operação aplicada aos
-                            pixels de uma imagem. Dependendo do algoritmo,
-                            podemos modificar cores, luminosidade, contraste
-                            ou até destacar contornos.
+                            Um filtro digital é uma operação que analisa ou
+                            modifica os valores dos pixels de uma imagem.
+                            Dependendo da regra aplicada, podemos mudar as
+                            cores, ajustar a luminosidade ou destacar bordas.
                         </p>
 
                         <p>
-                            Alguns filtros analisam cada pixel separadamente.
-                            Outros consideram também os pixels vizinhos por
-                            meio de uma matriz chamada kernel.
+                            Alguns filtros trabalham com cada pixel
+                            individualmente. Outros calculam um novo valor
+                            usando também os pixels ao redor, em uma operação
+                            chamada <strong>convolução</strong>.
+                        </p>
+
+                        <p>
+                            Nesta página, a imagem original permanece como
+                            referência. Cada filtro é calculado a partir dela,
+                            permitindo comparar os resultados sem acumular
+                            alterações sucessivas.
                         </p>
                     </article>
 
@@ -196,6 +178,17 @@
                         </div>
                     </article>
                 </div>
+
+                <div class="information-box">
+                    <span class="information-icon">i</span>
+
+                    <p>
+                        Na escala de cinza, os três canais recebem o mesmo
+                        valor calculado. O verde tem peso maior nessa fórmula
+                        porque contribui mais para a percepção de luminosidade
+                        usada por esse modelo de conversão.
+                    </p>
+                </div>
             </div>
         </section>
 
@@ -223,7 +216,7 @@
                     </p>
                 </div>
 
-                <!-- Upload -->
+                <!-- Seleção da imagem -->
                 <div class="upload-area" id="upload-area">
                     <input
                         type="file"
@@ -254,7 +247,7 @@
                     </button>
                 </div>
 
-                <!-- Aplicação -->
+                <!-- Controles e visualização -->
                 <div class="filter-workspace hidden" id="filter-workspace">
                     <aside class="filters-panel">
                         <div class="panel-title">
@@ -371,7 +364,10 @@
                         </div>
 
                         <div class="range-controls">
-                            <label class="range-control" for="brightness-range">
+                            <label
+                                class="range-control"
+                                for="brightness-range"
+                            >
                                 <span>
                                     Brilho
                                     <output id="brightness-value">0</output>
@@ -386,7 +382,10 @@
                                 >
                             </label>
 
-                            <label class="range-control" for="contrast-range">
+                            <label
+                                class="range-control"
+                                for="contrast-range"
+                            >
                                 <span>
                                     Contraste
                                     <output id="contrast-value">0</output>
@@ -481,6 +480,7 @@
                             <article class="image-panel result-panel">
                                 <div class="image-panel-header">
                                     <span>RESULTADO</span>
+
                                     <span id="processing-status">
                                         processado
                                     </span>
@@ -492,8 +492,12 @@
                             </article>
                         </div>
 
-                        <div class="processing-message" id="processing-message">
+                        <div
+                            class="processing-message"
+                            id="processing-message"
+                        >
                             <span>&gt;</span>
+
                             <p>
                                 Selecione um filtro para alterar a imagem.
                             </p>
@@ -506,10 +510,22 @@
                     id="error-message"
                     role="alert"
                 ></div>
+
+                <div class="information-box">
+                    <span class="information-icon">!</span>
+
+                    <p>
+                        Para evitar travamentos, imagens grandes são reduzidas
+                        proporcionalmente a, no máximo, 1.400 pixels na maior
+                        dimensão durante o processamento. O download contém
+                        a imagem processada nessa resolução e é exportado em
+                        PNG, mesmo que a entrada seja JPEG ou WEBP.
+                    </p>
+                </div>
             </div>
         </section>
 
-        <!-- Tipos de filtros -->
+        <!-- Classificação -->
         <section class="content-section alternate-section">
             <div class="container">
                 <div class="chapter-heading">
@@ -531,8 +547,8 @@
                         <h3>Filtros de cor</h3>
 
                         <p>
-                            Modificam cada pixel individualmente, sem precisar
-                            analisar os pixels vizinhos.
+                            Calculam um novo valor a partir dos canais do
+                            próprio pixel, sem consultar seus vizinhos.
                         </p>
 
                         <ul>
@@ -549,8 +565,8 @@
                         <h3>Filtros espaciais</h3>
 
                         <p>
-                            Utilizam uma pequena matriz para calcular o novo
-                            valor com base nos pixels próximos.
+                            Usam uma pequena matriz de pesos para combinar
+                            o pixel atual com os pixels ao redor.
                         </p>
 
                         <ul>
@@ -561,11 +577,16 @@
                     </article>
 
                     <article class="kernel-card">
-                        <span class="theory-label">EXEMPLO DE KERNEL</span>
+                        <span class="theory-label">
+                            EXEMPLO DE KERNEL
+                        </span>
 
                         <h3>Detecção de bordas</h3>
 
-                        <div class="kernel-grid" aria-label="Matriz de kernel">
+                        <div
+                            class="kernel-grid"
+                            aria-label="Matriz de detecção de bordas com valor 8 no centro e -1 nas demais posições"
+                        >
                             <span>-1</span>
                             <span>-1</span>
                             <span>-1</span>
@@ -577,6 +598,102 @@
                             <span>-1</span>
                         </div>
                     </article>
+                </div>
+
+                <div class="information-box">
+                    <span class="information-icon">i</span>
+
+                    <p>
+                        No desfoque, os nove pesos do kernel são iguais a
+                        <strong>1/9</strong>: o resultado é a média de uma
+                        vizinhança de 3 × 3 pixels. Já o kernel acima realça
+                        diferenças entre o centro e seus vizinhos, destacando
+                        mudanças bruscas de intensidade que podem representar
+                        bordas.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Código e aplicações, dentro da mesma página -->
+        <section class="content-section">
+            <div class="container">
+                <div class="chapter-heading">
+                    <span class="chapter-number">04</span>
+
+                    <div>
+                        <span class="section-code">
+                            CÓDIGO E APLICAÇÕES
+                        </span>
+
+                        <h2>Da teoria à prática</h2>
+                    </div>
+                </div>
+
+                <div class="text-grid">
+                    <article class="text-card">
+                        <h3>Um trecho do algoritmo</h3>
+
+                        <p>
+                            O filtro de cinza calcula uma intensidade a
+                            partir dos três canais. Em seguida, atribui
+                            essa intensidade a R, G e B.
+                        </p>
+
+                        <pre style="margin-top: 18px; padding: 18px; overflow-x: auto; border: 1px solid var(--border); border-radius: 5px; background: #050906; color: var(--primary); font-family: var(--font-code); font-size: 0.78rem; line-height: 1.65;"><code>const cinza =
+    0.299 * vermelho +
+    0.587 * verde +
+    0.114 * azul;
+
+pixels[indice] = cinza;       // R
+pixels[indice + 1] = cinza;   // G
+pixels[indice + 2] = cinza;   // B</code></pre>
+
+                        <p>
+                            Esse trecho resume a lógica usada no arquivo
+                            <code>js/filtros.js</code>. O Canvas permite ler
+                            os dados dos pixels, modificar seus canais e
+                            desenhar o resultado na tela.
+                        </p>
+                    </article>
+
+                    <article class="text-card">
+                        <h3>Onde filtros são úteis?</h3>
+
+                        <p>
+                            <strong>Fotografia:</strong> ajuste de brilho,
+                            contraste e aparência da imagem.
+                        </p>
+
+                        <p>
+                            <strong>Documentos digitalizados:</strong>
+                            conversão para preto e branco para facilitar
+                            a visualização de certos textos.
+                        </p>
+
+                        <p>
+                            <strong>Visão computacional:</strong> destaque
+                            de contornos como uma etapa preliminar de análise.
+                        </p>
+
+                        <p>
+                            <strong>Imagens científicas:</strong> realce de
+                            características que depois precisam ser avaliadas
+                            no contexto correto.
+                        </p>
+                    </article>
+                </div>
+
+                <div class="information-box">
+                    <span class="information-icon">!</span>
+
+                    <p>
+                        Um filtro muda os dados da imagem; não cria detalhes
+                        que não estavam presentes na captura. Além disso,
+                        aplicar um filtro <strong>depois</strong> de esconder
+                        uma mensagem por LSB pode modificar seus bits e
+                        impedir a extração.
+                    </p>
                 </div>
             </div>
         </section>
@@ -599,8 +716,7 @@
                 </div>
 
                 <a href="criptografia.html" class="button button-primary">
-                    Ir para criptografia
-                    <span>→</span>
+                    Ir para criptografia <span>→</span>
                 </a>
             </div>
         </section>
@@ -612,8 +728,7 @@
                 <span class="logo-symbol">&lt;/&gt;</span>
 
                 <span class="logo-text">
-                    PixelCipher
-                    <strong>Lab</strong>
+                    PixelCipher <strong>Lab</strong>
                 </span>
             </a>
 
@@ -630,13 +745,10 @@
 
         <div class="container footer-bottom">
             <span>
-                PixelCipher Lab ©
-                <span id="current-year"></span>
+                PixelCipher Lab © <span id="current-year"></span>
             </span>
 
-            <span>
-                Conexão segura // Aprendizado interativo
-            </span>
+            <span>Conexão segura // Aprendizado interativo</span>
         </div>
     </footer>
 </body>

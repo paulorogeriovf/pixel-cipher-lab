@@ -2,25 +2,12 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
-
-    <meta
-        name="description"
-        content="Laboratório do PixelCipher Lab para criptografar e esconder mensagens em imagens."
-    >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Experimente criptografia e esteganografia: proteja uma mensagem, esconda-a em uma imagem e recupere-a no PixelCipher Lab.">
 
     <title>Laboratório | PixelCipher Lab</title>
 
-    <link
-        rel="icon"
-        type="image/png"
-        href="../assets/icons/favicon.png"
-    >
-
+    <link rel="icon" type="image/png" href="../assets/icons/favicon.png">
     <link rel="stylesheet" href="../css/global.css">
     <link rel="stylesheet" href="../css/conteudo.css">
     <link rel="stylesheet" href="../css/laboratorio.css">
@@ -34,11 +21,7 @@
         <div class="container header-content">
             <a href="../index.html" class="logo">
                 <span class="logo-symbol">&lt;/&gt;</span>
-
-                <span class="logo-text">
-                    PixelCipher
-                    <strong>Lab</strong>
-                </span>
+                <span class="logo-text">PixelCipher <strong>Lab</strong></span>
             </a>
 
             <button
@@ -56,29 +39,11 @@
 
             <nav class="navigation" id="navigation">
                 <a href="../index.html" class="nav-link">Início</a>
-
-                <a href="fundamentos.html" class="nav-link">
-                    Fundamentos
-                </a>
-
-                <a href="filtros.html" class="nav-link">
-                    Filtros
-                </a>
-
-                <a href="criptografia.html" class="nav-link">
-                    Criptografia
-                </a>
-
-                <a href="esteganografia.html" class="nav-link">
-                    Esteganografia
-                </a>
-
-                <a
-                    href="laboratorio.html"
-                    class="nav-link nav-highlight active"
-                >
-                    Laboratório
-                </a>
+                <a href="fundamentos.html" class="nav-link">Fundamentos</a>
+                <a href="filtros.html" class="nav-link">Filtros</a>
+                <a href="criptografia.html" class="nav-link">Criptografia</a>
+                <a href="esteganografia.html" class="nav-link">Esteganografia</a>
+                <a href="laboratorio.html" class="nav-link nav-highlight active">Laboratório</a>
             </nav>
         </div>
     </header>
@@ -94,9 +59,7 @@
                 </div>
 
                 <div class="laboratory-hero-content">
-                    <span class="section-code">
-                        SISTEMA PRINCIPAL // ONLINE
-                    </span>
+                    <span class="section-code">SISTEMA PRINCIPAL // ONLINE</span>
 
                     <h1>
                         Laboratório
@@ -105,29 +68,15 @@
 
                     <p>
                         Proteja uma mensagem com criptografia AES e esconda
-                        o resultado dentro dos pixels de uma imagem.
+                        o resultado dentro dos pixels de uma imagem. Depois,
+                        utilize a imagem e a senha para recuperar o texto.
                     </p>
 
                     <div class="security-indicators">
-                        <span>
-                            <strong>AES</strong>
-                            criptografia
-                        </span>
-
-                        <span>
-                            <strong>256</strong>
-                            bits
-                        </span>
-
-                        <span>
-                            <strong>LSB</strong>
-                            ocultação
-                        </span>
-
-                        <span>
-                            <strong>LOCAL</strong>
-                            processamento
-                        </span>
+                        <span><strong>AES</strong> criptografia</span>
+                        <span><strong>256</strong> bits</span>
+                        <span><strong>LSB</strong> ocultação</span>
+                        <span><strong>LOCAL</strong> processamento</span>
                     </div>
                 </div>
             </div>
@@ -166,6 +115,75 @@
             </div>
         </section>
 
+        <!-- Orientação didática -->
+        <section class="content-section">
+            <div class="container">
+                <div class="chapter-heading">
+                    <span class="chapter-number">01</span>
+
+                    <div>
+                        <span class="section-code">ANTES DE COMEÇAR</span>
+                        <h2>O que vamos testar?</h2>
+                    </div>
+                </div>
+
+                <p class="chapter-introduction">
+                    Este laboratório combina duas técnicas com funções diferentes.
+                    Primeiro, a criptografia transforma o texto em dados que
+                    dependem da senha para serem recuperados. Depois, a
+                    esteganografia insere esses dados nos pixels de uma imagem.
+                </p>
+
+                <div class="text-grid">
+                    <article class="text-card">
+                        <h3>Criptografia: proteger o conteúdo</h3>
+
+                        <p>
+                            O AES-GCM transforma a mensagem em dados cifrados.
+                            A mesma senha utilizada na proteção será necessária
+                            para descriptografá-los durante a recuperação.
+                        </p>
+
+                        <p>
+                            Uma senha curta ou previsível diminui a proteção
+                            prática. A barra exibida no formulário oferece
+                            uma orientação, mas não garante que uma senha
+                            seja impossível de descobrir.
+                        </p>
+                    </article>
+
+                    <article class="text-card">
+                        <h3>Esteganografia: ocultar os dados</h3>
+
+                        <p>
+                            Após a criptografia, os dados resultantes são
+                            distribuídos pelos bits menos significativos dos
+                            canais RGB. A imagem de saída é salva em PNG
+                            para preservar os valores dos pixels.
+                        </p>
+
+                        <p>
+                            Ocultar dados não torna sua presença indetectável.
+                            As duas técnicas se complementam: uma protege
+                            a leitura da mensagem, e a outra a insere
+                            no suporte visual.
+                        </p>
+                    </article>
+                </div>
+
+                <div class="information-box">
+                    <span class="information-icon">i</span>
+
+                    <p>
+                        Use uma imagem sua ou que você tenha permissão para
+                        utilizar. Para o primeiro teste, escolha uma mensagem
+                        curta e sem informações pessoais: assim fica mais
+                        fácil observar o processo e verificar o resultado.
+                    </p>
+                </div>
+            </div>
+        </section>
+
         <!-- Ferramenta -->
         <section class="laboratory-section">
             <div class="container">
@@ -193,10 +211,7 @@
                 <section class="laboratory-panel" id="protect-panel">
                     <div class="panel-heading">
                         <div>
-                            <span class="section-code">
-                                OPERAÇÃO 01
-                            </span>
-
+                            <span class="section-code">OPERAÇÃO 01</span>
                             <h2>Esconder mensagem protegida</h2>
 
                             <p>
@@ -260,10 +275,7 @@
 
                                 <div class="capacity-data">
                                     <span>Capacidade aproximada</span>
-
-                                    <strong id="protect-capacity">
-                                        0 bytes
-                                    </strong>
+                                    <strong id="protect-capacity">0 bytes</strong>
                                 </div>
                             </div>
                         </article>
@@ -289,14 +301,10 @@
 
                                 <div class="message-information">
                                     <span>
-                                        <strong id="protect-character-count">
-                                            0
-                                        </strong>/5000 caracteres
+                                        <strong id="protect-character-count">0</strong>/5000 caracteres
                                     </span>
 
-                                    <span id="message-size">
-                                        0 bytes
-                                    </span>
+                                    <span id="message-size">0 bytes</span>
                                 </div>
                             </div>
                         </article>
@@ -388,21 +396,10 @@
                         </div>
 
                         <div class="progress-steps">
-                            <span id="step-validate">
-                                Validando dados
-                            </span>
-
-                            <span id="step-encrypt">
-                                Criptografando
-                            </span>
-
-                            <span id="step-hide">
-                                Inserindo nos pixels
-                            </span>
-
-                            <span id="step-complete">
-                                Finalizando
-                            </span>
+                            <span id="step-validate">Validando dados</span>
+                            <span id="step-encrypt">Criptografando</span>
+                            <span id="step-hide">Inserindo nos pixels</span>
+                            <span id="step-complete">Finalizando</span>
                         </div>
                     </div>
 
@@ -480,10 +477,7 @@
                 >
                     <div class="panel-heading">
                         <div>
-                            <span class="section-code">
-                                OPERAÇÃO 02
-                            </span>
-
+                            <span class="section-code">OPERAÇÃO 02</span>
                             <h2>Recuperar mensagem escondida</h2>
 
                             <p>
@@ -637,6 +631,72 @@
             </div>
         </section>
 
+        <!-- Atividade prática -->
+        <section class="content-section">
+            <div class="container">
+                <div class="chapter-heading">
+                    <span class="chapter-number">02</span>
+
+                    <div>
+                        <span class="section-code">ATIVIDADE GUIADA</span>
+                        <h2>Faça um teste completo</h2>
+                    </div>
+                </div>
+
+                <div class="stego-steps">
+                    <article>
+                        <span>01</span>
+                        <h3>Prepare</h3>
+                        <p>
+                            Selecione uma imagem, digite uma mensagem curta
+                            e escolha uma senha que você consiga repetir
+                            neste teste.
+                        </p>
+                    </article>
+
+                    <article>
+                        <span>02</span>
+                        <h3>Proteja</h3>
+                        <p>
+                            Execute a operação, observe a imagem resultante
+                            e baixe o PNG produzido pelo laboratório.
+                        </p>
+                    </article>
+
+                    <article>
+                        <span>03</span>
+                        <h3>Recupere</h3>
+                        <p>
+                            Abra a aba “Extrair e recuperar”, selecione
+                            o PNG baixado e digite a mesma senha.
+                        </p>
+                    </article>
+
+                    <article>
+                        <span>04</span>
+                        <h3>Compare</h3>
+                        <p>
+                            Verifique se o texto recuperado é igual ao
+                            original. O que acontece se você informar
+                            uma senha diferente?
+                        </p>
+                    </article>
+                </div>
+
+                <div class="information-box">
+                    <span class="information-icon">i</span>
+
+                    <p>
+                        Compare também os indicadores de caracteres, tamanho
+                        em bytes e capacidade da imagem. O tamanho dos dados
+                        inseridos pode ser maior que o texto original porque
+                        a criptografia e a recuperação precisam de informações
+                        adicionais.
+                    </p>
+                </div>
+            </div>
+        </section>
+
         <!-- Informações -->
         <section class="content-section alternate-section">
             <div class="container">
@@ -655,8 +715,10 @@
                         <h3>Mantenha o formato</h3>
 
                         <p>
-                            Não converta a imagem para JPEG depois de
-                            realizar o download.
+                            Você pode usar PNG, JPEG ou WEBP como imagem
+                            de entrada, mas não converta o resultado baixado
+                            para JPEG. Essa conversão pode modificar
+                            os bits da mensagem.
                         </p>
                     </article>
 
@@ -665,8 +727,9 @@
                         <h3>Não edite a imagem</h3>
 
                         <p>
-                            Recortes, filtros e redimensionamentos podem
-                            modificar os bits utilizados.
+                            Recortes, filtros, redimensionamentos e algumas
+                            plataformas de compartilhamento podem modificar
+                            os pixels utilizados pelo laboratório.
                         </p>
                     </article>
 
@@ -676,7 +739,33 @@
 
                         <p>
                             O PixelCipher Lab não armazena nem consegue
-                            recuperar senhas esquecidas.
+                            recuperar senhas esquecidas. Sem a senha correta,
+                            a mensagem protegida não poderá ser lida
+                            pelo laboratório.
+                        </p>
+                    </article>
+                </div>
+
+                <div class="text-grid">
+                    <article class="text-card">
+                        <h3>Qual imagem escolher?</h3>
+
+                        <p>
+                            Uma imagem com mais pixels oferece mais espaço
+                            para inserir dados. Observe a capacidade indicada
+                            após selecioná-la e escolha um arquivo sobre
+                            o qual você tenha direito de uso.
+                        </p>
+                    </article>
+
+                    <article class="text-card">
+                        <h3>O que esconder na demonstração?</h3>
+
+                        <p>
+                            Para apresentar o projeto, uma frase curta,
+                            uma pergunta ou uma pista para a atividade
+                            é suficiente. Evite inserir dados sensíveis
+                            em uma demonstração pública.
                         </p>
                     </article>
                 </div>
@@ -688,11 +777,7 @@
         <div class="container footer-content">
             <a href="../index.html" class="logo footer-logo">
                 <span class="logo-symbol">&lt;/&gt;</span>
-
-                <span class="logo-text">
-                    PixelCipher
-                    <strong>Lab</strong>
-                </span>
+                <span class="logo-text">PixelCipher <strong>Lab</strong></span>
             </a>
 
             <p>
@@ -712,9 +797,7 @@
                 <span id="current-year"></span>
             </span>
 
-            <span>
-                Conexão segura // Aprendizado interativo
-            </span>
+            <span>Conexão segura // Aprendizado interativo</span>
         </div>
     </footer>
 </body>

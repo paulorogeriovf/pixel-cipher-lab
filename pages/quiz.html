@@ -2,25 +2,15 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta
         name="description"
-        content="Teste seus conhecimentos sobre imagens digitais, filtros, criptografia e esteganografia."
+        content="Teste seus conhecimentos sobre imagens digitais, filtros, criptografia e esteganografia no quiz do PixelCipher Lab."
     >
 
     <title>Quiz | PixelCipher Lab</title>
 
-    <link
-        rel="icon"
-        type="image/png"
-        href="../assets/icons/favicon.png"
-    >
-
+    <link rel="icon" type="image/png" href="../assets/icons/favicon.png">
     <link rel="stylesheet" href="../css/global.css">
     <link rel="stylesheet" href="../css/conteudo.css">
     <link rel="stylesheet" href="../css/quiz.css">
@@ -34,11 +24,7 @@
         <div class="container header-content">
             <a href="../index.html" class="logo">
                 <span class="logo-symbol">&lt;/&gt;</span>
-
-                <span class="logo-text">
-                    PixelCipher
-                    <strong>Lab</strong>
-                </span>
+                <span class="logo-text">PixelCipher <strong>Lab</strong></span>
             </a>
 
             <button
@@ -56,31 +42,17 @@
 
             <nav class="navigation" id="navigation">
                 <a href="../index.html" class="nav-link">Início</a>
-
-                <a href="fundamentos.html" class="nav-link">
-                    Fundamentos
-                </a>
-
-                <a href="filtros.html" class="nav-link">
-                    Filtros
-                </a>
-
-                <a href="criptografia.html" class="nav-link">
-                    Criptografia
-                </a>
-
-                <a href="esteganografia.html" class="nav-link">
-                    Esteganografia
-                </a>
-
-                <a href="laboratorio.html" class="nav-link nav-highlight">
-                    Laboratório
-                </a>
+                <a href="fundamentos.html" class="nav-link">Fundamentos</a>
+                <a href="filtros.html" class="nav-link">Filtros</a>
+                <a href="criptografia.html" class="nav-link">Criptografia</a>
+                <a href="esteganografia.html" class="nav-link">Esteganografia</a>
+                <a href="laboratorio.html" class="nav-link nav-highlight">Laboratório</a>
             </nav>
         </div>
     </header>
 
     <main>
+        <!-- Apresentação -->
         <section class="quiz-hero">
             <div class="container">
                 <div class="breadcrumb">
@@ -90,9 +62,7 @@
                 </div>
 
                 <div class="quiz-hero-content">
-                    <span class="section-code">
-                        AVALIAÇÃO // 10 QUESTÕES
-                    </span>
+                    <span class="section-code">AVALIAÇÃO // 10 QUESTÕES</span>
 
                     <h1>
                         Teste seus
@@ -101,13 +71,65 @@
 
                     <p>
                         Responda às questões sobre pixels, filtragem,
-                        criptografia e esteganografia. Ao final, você receberá
-                        sua pontuação e a explicação de cada resposta.
+                        criptografia e esteganografia. Ao final, você verá
+                        sua pontuação e poderá revisar as respostas.
                     </p>
                 </div>
             </div>
         </section>
 
+        <!-- Orientação de estudo -->
+        <section class="content-section">
+            <div class="container">
+                <div class="chapter-heading">
+                    <span class="chapter-number">?</span>
+
+                    <div>
+                        <span class="section-code">REVISÃO RÁPIDA</span>
+                        <h2>O que vale observar antes do quiz?</h2>
+                    </div>
+                </div>
+
+                <div class="text-grid">
+                    <article class="text-card">
+                        <h3>Imagem e filtros</h3>
+
+                        <p>
+                            Uma imagem digital é formada por pixels.
+                            Sua resolução informa quantos pixels ela possui,
+                            e os canais RGB descrevem componentes de cor.
+                            Os filtros alteram valores dos pixels para
+                            produzir diferentes efeitos visuais.
+                        </p>
+                    </article>
+
+                    <article class="text-card">
+                        <h3>Proteger e esconder</h3>
+
+                        <p>
+                            Criptografar significa proteger a leitura
+                            da mensagem. A esteganografia LSB usa bits
+                            menos significativos dos canais de uma imagem
+                            para armazenar dados. Esconder uma mensagem,
+                            por si só, não equivale a criptografá-la.
+                        </p>
+                    </article>
+                </div>
+
+                <div class="information-box">
+                    <span class="information-icon">i</span>
+
+                    <p>
+                        Se alguma questão gerar dúvida, leia a explicação
+                        apresentada pelo quiz e retorne ao módulo
+                        correspondente. O objetivo é verificar
+                        a aprendizagem, não apenas obter uma pontuação.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quiz -->
         <section class="quiz-section">
             <div class="container">
                 <!-- Tela inicial -->
@@ -145,28 +167,14 @@
                     </div>
 
                     <div class="introduction-content">
-                        <span class="section-code">
-                            ANTES DE COMEÇAR
-                        </span>
-
+                        <span class="section-code">ANTES DE COMEÇAR</span>
                         <h2>Como funciona?</h2>
 
                         <ul>
-                            <li>
-                                Selecione uma resposta em cada questão.
-                            </li>
-
-                            <li>
-                                Após responder, veja imediatamente se acertou.
-                            </li>
-
-                            <li>
-                                Leia a explicação antes de avançar.
-                            </li>
-
-                            <li>
-                                Sua pontuação será apresentada ao final.
-                            </li>
+                            <li>Selecione uma resposta em cada questão.</li>
+                            <li>Após responder, veja imediatamente se acertou.</li>
+                            <li>Leia a explicação antes de avançar.</li>
+                            <li>Confira sua pontuação e a revisão ao final.</li>
                         </ul>
 
                         <button
@@ -211,13 +219,8 @@
 
                     <article class="question-card">
                         <div class="question-header">
-                            <span id="question-category">
-                                FUNDAMENTOS
-                            </span>
-
-                            <span id="question-label">
-                                QUESTÃO 01
-                            </span>
+                            <span id="question-category">FUNDAMENTOS</span>
+                            <span id="question-label">QUESTÃO 01</span>
                         </div>
 
                         <div class="question-content">
@@ -261,10 +264,7 @@
                             <span>/ 10</span>
                         </div>
 
-                        <h2 id="result-title">
-                            Resultado
-                        </h2>
-
+                        <h2 id="result-title">Resultado</h2>
                         <p id="result-description"></p>
 
                         <div class="result-percentage">
@@ -272,7 +272,9 @@
                                 <span id="result-progress"></span>
                             </div>
 
-                            <strong id="result-percentage-text">0%</strong>
+                            <strong id="result-percentage-text">
+                                0%
+                            </strong>
                         </div>
 
                         <div class="result-actions">
@@ -295,10 +297,7 @@
 
                     <div class="answers-review">
                         <div class="review-heading">
-                            <span class="section-code">
-                                REVISÃO
-                            </span>
-
+                            <span class="section-code">REVISÃO</span>
                             <h2>Confira suas respostas</h2>
                         </div>
 
@@ -313,11 +312,7 @@
         <div class="container footer-content">
             <a href="../index.html" class="logo footer-logo">
                 <span class="logo-symbol">&lt;/&gt;</span>
-
-                <span class="logo-text">
-                    PixelCipher
-                    <strong>Lab</strong>
-                </span>
+                <span class="logo-text">PixelCipher <strong>Lab</strong></span>
             </a>
 
             <p>
@@ -337,9 +332,7 @@
                 <span id="current-year"></span>
             </span>
 
-            <span>
-                Conexão segura // Aprendizado interativo
-            </span>
+            <span>Conexão segura // Aprendizado interativo</span>
         </div>
     </footer>
 </body>

@@ -2,25 +2,12 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
-
-    <meta
-        name="description"
-        content="Aprenda esteganografia LSB e esconda mensagens dentro de imagens."
-    >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Aprenda esteganografia LSB, entenda seus limites e esconda mensagens dentro de imagens.">
 
     <title>Esteganografia | PixelCipher Lab</title>
 
-    <link
-        rel="icon"
-        type="image/png"
-        href="../assets/icons/favicon.png"
-    >
-
+    <link rel="icon" type="image/png" href="../assets/icons/favicon.png">
     <link rel="stylesheet" href="../css/global.css">
     <link rel="stylesheet" href="../css/conteudo.css">
     <link rel="stylesheet" href="../css/esteganografia.css">
@@ -34,11 +21,7 @@
         <div class="container header-content">
             <a href="../index.html" class="logo">
                 <span class="logo-symbol">&lt;/&gt;</span>
-
-                <span class="logo-text">
-                    PixelCipher
-                    <strong>Lab</strong>
-                </span>
+                <span class="logo-text">PixelCipher <strong>Lab</strong></span>
             </a>
 
             <button
@@ -56,26 +39,11 @@
 
             <nav class="navigation" id="navigation">
                 <a href="../index.html" class="nav-link">Início</a>
-
-                <a href="fundamentos.html" class="nav-link">
-                    Fundamentos
-                </a>
-
-                <a href="filtros.html" class="nav-link">
-                    Filtros
-                </a>
-
-                <a href="criptografia.html" class="nav-link">
-                    Criptografia
-                </a>
-
-                <a href="esteganografia.html" class="nav-link active">
-                    Esteganografia
-                </a>
-
-                <a href="laboratorio.html" class="nav-link nav-highlight">
-                    Laboratório
-                </a>
+                <a href="fundamentos.html" class="nav-link">Fundamentos</a>
+                <a href="filtros.html" class="nav-link">Filtros</a>
+                <a href="criptografia.html" class="nav-link">Criptografia</a>
+                <a href="esteganografia.html" class="nav-link active">Esteganografia</a>
+                <a href="laboratorio.html" class="nav-link nav-highlight">Laboratório</a>
             </nav>
         </div>
     </header>
@@ -92,9 +60,7 @@
 
                 <div class="content-hero-grid">
                     <div>
-                        <span class="section-code">
-                            MÓDULO 04 // ESTEGANOGRAFIA
-                        </span>
+                        <span class="section-code">MÓDULO 04 // ESTEGANOGRAFIA</span>
 
                         <h1>
                             Esconda informações
@@ -102,39 +68,21 @@
                         </h1>
 
                         <p>
-                            Descubra como pequenas alterações nos bits de uma
-                            imagem podem armazenar uma mensagem sem causar uma
-                            diferença visual facilmente perceptível.
+                            Descubra como pequenas alterações nos bits de uma imagem
+                            podem armazenar uma mensagem sem produzir uma diferença
+                            visual facilmente perceptível.
                         </p>
                     </div>
 
                     <aside class="module-summary">
-                        <span class="summary-status">
-                            MÉTODO LSB
-                        </span>
-
+                        <span class="summary-status">MÉTODO LSB</span>
                         <h2>Neste módulo</h2>
 
                         <ul>
-                            <li>
-                                <span>01</span>
-                                Conceito de esteganografia
-                            </li>
-
-                            <li>
-                                <span>02</span>
-                                Bits menos significativos
-                            </li>
-
-                            <li>
-                                <span>03</span>
-                                Inserção da mensagem
-                            </li>
-
-                            <li>
-                                <span>04</span>
-                                Extração da mensagem
-                            </li>
+                            <li><span>01</span> Conceito de esteganografia</li>
+                            <li><span>02</span> Bits menos significativos</li>
+                            <li><span>03</span> Inserção da mensagem</li>
+                            <li><span>04</span> Extração da mensagem</li>
                         </ul>
                     </aside>
                 </div>
@@ -146,7 +94,6 @@
             <div class="container">
                 <div class="chapter-heading">
                     <span class="chapter-number">01</span>
-
                     <div>
                         <span class="section-code">CONCEITO</span>
                         <h2>O que é esteganografia?</h2>
@@ -158,15 +105,16 @@
                         <h3>Ocultar a existência da informação</h3>
 
                         <p>
-                            Esteganografia é a técnica de esconder uma
-                            informação dentro de outro conteúdo, como uma
-                            imagem, áudio ou vídeo.
+                            Esteganografia é a técnica de inserir uma informação
+                            dentro de outro conteúdo, como uma imagem, um áudio
+                            ou um vídeo. O conteúdo utilizado para transportar
+                            a mensagem é chamado de <strong>suporte</strong>.
                         </p>
 
                         <p>
                             Diferentemente da criptografia, seu objetivo
                             principal não é tornar a mensagem ilegível, mas
-                            fazer com que sua existência passe despercebida.
+                            dificultar a percepção de que ela está presente.
                         </p>
                     </article>
 
@@ -183,9 +131,18 @@
 
                         <div class="comparison-row">
                             <span>COMBINAÇÃO</span>
-                            <code>Protege + Esconde</code>
+                            <code>Criptografar → Inserir</code>
                         </div>
                     </article>
+                </div>
+
+                <div class="information-box">
+                    <span class="information-icon">i</span>
+                    <p>
+                        Uma mensagem escondida por LSB ainda pode ser lida por
+                        quem souber como extraí-la. Para proteger seu conteúdo,
+                        é preciso criptografá-la antes de inseri-la na imagem.
+                    </p>
                 </div>
             </div>
         </section>
@@ -195,28 +152,23 @@
             <div class="container">
                 <div class="chapter-heading">
                     <span class="chapter-number">02</span>
-
                     <div>
-                        <span class="section-code">
-                            LEAST SIGNIFICANT BIT
-                        </span>
-
+                        <span class="section-code">LEAST SIGNIFICANT BIT</span>
                         <h2>Como funciona o método LSB?</h2>
                     </div>
                 </div>
 
                 <p class="chapter-introduction">
-                    O LSB utiliza o bit menos significativo de cada canal RGB.
-                    Alterar esse último bit provoca uma mudança de apenas uma
-                    unidade no valor da cor.
+                    Um pixel possui valores para os canais vermelho, verde e azul
+                    (RGB). Cada valor vai de 0 a 255 e pode ser representado por
+                    oito bits. No método LSB, substituímos apenas o último bit
+                    de cada canal por um bit da mensagem.
                 </p>
 
                 <div class="lsb-demonstration">
                     <article class="bit-card">
                         <span>VALOR ORIGINAL</span>
-                        <strong>
-                            1100101<span class="old-bit">0</span>
-                        </strong>
+                        <strong>1100101<span class="old-bit">0</span></strong>
                         <small>Decimal: 202</small>
                     </article>
 
@@ -227,31 +179,64 @@
 
                     <article class="bit-card modified">
                         <span>VALOR MODIFICADO</span>
-                        <strong>
-                            1100101<span class="new-bit">1</span>
-                        </strong>
+                        <strong>1100101<span class="new-bit">1</span></strong>
                         <small>Decimal: 203</small>
                     </article>
                 </div>
 
                 <div class="information-box">
                     <span class="information-icon">i</span>
-
                     <p>
-                        A diferença entre 202 e 203 é mínima. Repetindo esse
-                        processo em vários canais, podemos armazenar os bits
-                        de uma mensagem completa.
+                        Nesse exemplo, a cor muda apenas de 202 para 203. Como
+                        podemos usar um bit em cada canal RGB, um pixel pode
+                        transportar até três bits da mensagem.
                     </p>
+                </div>
+
+                <div class="text-grid">
+                    <article class="text-card">
+                        <h3>Por que o último bit?</h3>
+
+                        <p>
+                            O bit menos significativo representa uma diferença
+                            de apenas uma unidade no valor do canal. Já alterar
+                            bits mais importantes pode provocar mudanças de cor
+                            muito maiores.
+                        </p>
+
+                        <p>
+                            Isso não significa que a alteração seja impossível
+                            de detectar: análises estatísticas ou comparações
+                            com a imagem original podem revelar indícios da
+                            mensagem.
+                        </p>
+                    </article>
+
+                    <article class="text-card">
+                        <h3>O que acontece em cada canal?</h3>
+
+                        <p>
+                            O programa lê os pixels em sequência. Para cada
+                            canal vermelho, verde ou azul, ele ajusta o último
+                            bit para corresponder ao próximo bit dos dados
+                            armazenados.
+                        </p>
+
+                        <p>
+                            Na extração, o processo é invertido: os últimos
+                            bits desses canais são lidos na mesma ordem e
+                            reunidos novamente em bytes.
+                        </p>
+                    </article>
                 </div>
             </div>
         </section>
 
-        <!-- Etapas -->
+        <!-- Etapas e capacidade -->
         <section class="content-section">
             <div class="container">
                 <div class="chapter-heading">
                     <span class="chapter-number">03</span>
-
                     <div>
                         <span class="section-code">PROCESSO</span>
                         <h2>Como a mensagem é inserida?</h2>
@@ -262,25 +247,74 @@
                     <article>
                         <span>01</span>
                         <h3>Converter</h3>
-                        <p>A mensagem é convertida em bytes e bits.</p>
+                        <p>
+                            O texto é convertido em bytes e, depois, em uma
+                            sequência de bits.
+                        </p>
                     </article>
 
                     <article>
                         <span>02</span>
                         <h3>Preparar</h3>
-                        <p>O sistema registra o tamanho da mensagem.</p>
+                        <p>
+                            Informações necessárias para reconhecer e delimitar
+                            a mensagem são armazenadas antes do texto.
+                        </p>
                     </article>
 
                     <article>
                         <span>03</span>
                         <h3>Inserir</h3>
-                        <p>Cada bit é colocado em um canal RGB.</p>
+                        <p>
+                            Cada bit é colocado no último bit de um canal RGB
+                            da imagem.
+                        </p>
                     </article>
 
                     <article>
                         <span>04</span>
                         <h3>Exportar</h3>
-                        <p>A nova imagem é salva no formato PNG.</p>
+                        <p>
+                            A imagem modificada é salva em PNG, preservando os
+                            valores dos pixels.
+                        </p>
+                    </article>
+                </div>
+
+                <div class="text-grid">
+                    <article class="text-card">
+                        <h3>Quanto cabe em uma imagem?</h3>
+
+                        <p>
+                            Uma imagem de 100 × 100 pixels tem 10.000 pixels
+                            e 30.000 canais RGB. Usando um bit por canal,
+                            obtemos 30.000 bits, equivalentes a 3.750 bytes
+                            de capacidade bruta.
+                        </p>
+
+                        <p>
+                            Parte desse espaço é reservada para os dados que
+                            ajudam a identificar e recuperar a mensagem.
+                            Por isso, a capacidade disponível exibida no
+                            laboratório pode ser menor.
+                        </p>
+                    </article>
+
+                    <article class="text-card">
+                        <h3>Bytes não são caracteres</h3>
+
+                        <p>
+                            A capacidade é medida em bytes. Uma letra simples
+                            pode ocupar um byte, enquanto caracteres como
+                            alguns símbolos e emojis podem ocupar vários bytes
+                            na codificação UTF-8.
+                        </p>
+
+                        <p>
+                            Acompanhe os indicadores “Utilizado” e “Disponível”
+                            enquanto digita. Uma mensagem maior precisa de uma
+                            imagem com mais pixels.
+                        </p>
                     </article>
                 </div>
             </div>
@@ -291,19 +325,14 @@
             <div class="container">
                 <div class="chapter-heading">
                     <span class="chapter-number">04</span>
-
                     <div>
-                        <span class="section-code">
-                            EXPERIÊNCIA INTERATIVA
-                        </span>
-
+                        <span class="section-code">EXPERIÊNCIA INTERATIVA</span>
                         <h2>Laboratório LSB</h2>
                     </div>
                 </div>
 
                 <div class="privacy-notice">
                     <span class="privacy-status"></span>
-
                     <p>
                         As imagens e mensagens permanecem no seu dispositivo.
                         Nenhum dado é enviado para servidores.
@@ -311,20 +340,12 @@
                 </div>
 
                 <div class="stego-tabs">
-                    <button
-                        type="button"
-                        class="stego-tab active"
-                        data-tab="hide"
-                    >
+                    <button type="button" class="stego-tab active" data-tab="hide">
                         <span>[01]</span>
                         Esconder mensagem
                     </button>
 
-                    <button
-                        type="button"
-                        class="stego-tab"
-                        data-tab="reveal"
-                    >
+                    <button type="button" class="stego-tab" data-tab="reveal">
                         <span>[02]</span>
                         Revelar mensagem
                     </button>
@@ -352,7 +373,6 @@
                                 id="hide-image-button"
                             >
                                 <span class="selector-icon">[IMG]</span>
-
                                 <span>
                                     <strong>Selecionar imagem</strong>
                                     <small>PNG, JPEG ou WEBP</small>
@@ -366,19 +386,12 @@
                                 <canvas id="hide-canvas"></canvas>
 
                                 <div class="image-data">
-                                    <span id="hide-file-name">
-                                        imagem.png
-                                    </span>
-
-                                    <span id="hide-resolution">
-                                        0 × 0
-                                    </span>
+                                    <span id="hide-file-name">imagem.png</span>
+                                    <span id="hide-resolution">0 × 0</span>
                                 </div>
                             </div>
 
-                            <label for="secret-message">
-                                Mensagem secreta
-                            </label>
+                            <label for="secret-message">Mensagem secreta</label>
 
                             <textarea
                                 id="secret-message"
@@ -426,26 +439,16 @@
                         </div>
 
                         <div class="tool-body result-body">
-                            <div
-                                class="empty-result"
-                                id="hide-empty-result"
-                            >
+                            <div class="empty-result" id="hide-empty-result">
                                 <span>[ ? ]</span>
-
-                                <p>
-                                    A imagem com a mensagem aparecerá aqui.
-                                </p>
+                                <p>A imagem com a mensagem aparecerá aqui.</p>
                             </div>
 
-                            <div
-                                class="encoded-result hidden"
-                                id="encoded-result"
-                            >
+                            <div class="encoded-result hidden" id="encoded-result">
                                 <canvas id="result-stego-canvas"></canvas>
 
                                 <div class="success-result">
                                     <strong>Mensagem escondida</strong>
-
                                     <span id="changed-channels">
                                         0 canais alterados
                                     </span>
@@ -465,10 +468,7 @@
                 </section>
 
                 <!-- Revelar -->
-                <section
-                    class="stego-tool hidden"
-                    id="reveal-panel"
-                >
+                <section class="stego-tool hidden" id="reveal-panel">
                     <div class="tool-card">
                         <div class="tool-header">
                             <span>ENTRADA</span>
@@ -489,7 +489,6 @@
                                 id="reveal-image-button"
                             >
                                 <span class="selector-icon">[LSB]</span>
-
                                 <span>
                                     <strong>Selecionar imagem PNG</strong>
                                     <small>Utilize uma imagem gerada aqui</small>
@@ -503,13 +502,8 @@
                                 <canvas id="reveal-canvas"></canvas>
 
                                 <div class="image-data">
-                                    <span id="reveal-file-name">
-                                        imagem.png
-                                    </span>
-
-                                    <span id="reveal-resolution">
-                                        0 × 0
-                                    </span>
+                                    <span id="reveal-file-name">imagem.png</span>
+                                    <span id="reveal-resolution">0 × 0</span>
                                 </div>
                             </div>
 
@@ -565,6 +559,16 @@
                     id="stego-status"
                     role="status"
                 ></div>
+
+                <div class="information-box">
+                    <span class="information-icon">i</span>
+                    <p>
+                        Para testar a extração, baixe o PNG gerado na primeira
+                        aba e selecione esse mesmo arquivo em “Revelar
+                        mensagem”. Uma imagem comum, sem mensagem inserida
+                        pelo laboratório, não produzirá o resultado esperado.
+                    </p>
+                </div>
             </div>
         </section>
 
@@ -573,7 +577,6 @@
             <div class="container">
                 <div class="chapter-heading">
                     <span class="chapter-number">05</span>
-
                     <div>
                         <span class="section-code">LIMITAÇÕES</span>
                         <h2>Cuidados com a imagem</h2>
@@ -583,31 +586,56 @@
                 <div class="warning-grid">
                     <article>
                         <span class="warning-symbol">+</span>
-                        <h3>Utilize PNG</h3>
-
+                        <h3>Utilize PNG na saída</h3>
                         <p>
-                            O formato preserva os valores dos pixels após o
-                            arquivo ser salvo.
+                            O PNG preserva os valores dos pixels ao salvar
+                            a imagem. Você pode selecionar JPEG ou WEBP como
+                            imagem de entrada, mas deve guardar o resultado
+                            gerado em PNG.
                         </p>
                     </article>
 
                     <article>
                         <span class="warning-symbol">!</span>
-                        <h3>Evite conversões</h3>
-
+                        <h3>Evite alterações</h3>
                         <p>
-                            Converter a imagem para JPEG poderá destruir os
-                            bits da mensagem.
+                            Converter o PNG para JPEG, redimensionar a imagem
+                            ou aplicar novos filtros pode modificar os bits
+                            que armazenam a mensagem.
                         </p>
                     </article>
 
                     <article>
                         <span class="warning-symbol">!</span>
-                        <h3>Cuidado ao enviar</h3>
-
+                        <h3>Cuidado ao compartilhar</h3>
                         <p>
-                            Algumas plataformas comprimem ou modificam
-                            automaticamente as imagens.
+                            Algumas plataformas comprimem ou modificam imagens
+                            automaticamente. Compartilhe o arquivo PNG original
+                            quando precisar preservar os dados inseridos.
+                        </p>
+                    </article>
+                </div>
+
+                <div class="text-grid">
+                    <article class="text-card">
+                        <h3>Ocultar não é proteger</h3>
+                        <p>
+                            O LSB não fornece sigilo por si só. Se a mensagem
+                            estiver em texto simples, quem conseguir extraí-la
+                            poderá lê-la. Também não há garantia de que
+                            alterações imperceptíveis a olho nu sejam
+                            indetectáveis por programas de análise.
+                        </p>
+                    </article>
+
+                    <article class="text-card">
+                        <h3>Onde essa técnica é útil?</h3>
+                        <p>
+                            O exemplo permite estudar representação binária,
+                            canais de cor, capacidade de armazenamento e a
+                            diferença entre esconder e criptografar dados.
+                            Aqui, o objetivo é experimentar esses conceitos
+                            de forma educativa e responsável.
                         </p>
                     </article>
                 </div>
@@ -619,13 +647,13 @@
             <div class="container next-module-card">
                 <div>
                     <span class="section-code">PRÓXIMA ETAPA</span>
-
                     <h2>Vamos combinar as duas técnicas</h2>
 
                     <p>
-                        No laboratório principal, a mensagem será
-                        criptografada com senha antes de ser escondida na
-                        imagem.
+                        No laboratório principal, a mensagem será criptografada
+                        com senha antes de ser escondida na imagem. Assim, você
+                        poderá observar a diferença entre proteger o conteúdo
+                        e ocultar sua presença.
                     </p>
                 </div>
 
@@ -641,11 +669,7 @@
         <div class="container footer-content">
             <a href="../index.html" class="logo footer-logo">
                 <span class="logo-symbol">&lt;/&gt;</span>
-
-                <span class="logo-text">
-                    PixelCipher
-                    <strong>Lab</strong>
-                </span>
+                <span class="logo-text">PixelCipher <strong>Lab</strong></span>
             </a>
 
             <p>
@@ -665,9 +689,7 @@
                 <span id="current-year"></span>
             </span>
 
-            <span>
-                Conexão segura // Aprendizado interativo
-            </span>
+            <span>Conexão segura // Aprendizado interativo</span>
         </div>
     </footer>
 </body>

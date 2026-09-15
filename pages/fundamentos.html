@@ -2,25 +2,15 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta
         name="description"
-        content="Aprenda como imagens digitais são formadas por pixels, cores RGB, resolução e representação binária."
+        content="Aprenda como imagens digitais são formadas por pixels, cores RGB, resolução, bits e formatos de arquivo."
     >
 
     <title>Fundamentos da Imagem | PixelCipher Lab</title>
 
-    <link
-        rel="icon"
-        type="image/png"
-        href="../assets/icons/favicon.png"
-    >
-
+    <link rel="icon" type="image/png" href="../assets/icons/favicon.png">
     <link rel="stylesheet" href="../css/global.css">
     <link rel="stylesheet" href="../css/conteudo.css">
 
@@ -33,10 +23,8 @@
         <div class="container header-content">
             <a href="../index.html" class="logo">
                 <span class="logo-symbol">&lt;/&gt;</span>
-
                 <span class="logo-text">
-                    PixelCipher
-                    <strong>Lab</strong>
+                    PixelCipher <strong>Lab</strong>
                 </span>
             </a>
 
@@ -54,26 +42,11 @@
             </button>
 
             <nav class="navigation" id="navigation">
-                <a href="../index.html" class="nav-link">
-                    Início
-                </a>
-
-                <a href="fundamentos.html" class="nav-link active">
-                    Fundamentos
-                </a>
-
-                <a href="filtros.html" class="nav-link">
-                    Filtros
-                </a>
-
-                <a href="criptografia.html" class="nav-link">
-                    Criptografia
-                </a>
-
-                <a href="esteganografia.html" class="nav-link">
-                    Esteganografia
-                </a>
-
+                <a href="../index.html" class="nav-link">Início</a>
+                <a href="fundamentos.html" class="nav-link active">Fundamentos</a>
+                <a href="filtros.html" class="nav-link">Filtros</a>
+                <a href="criptografia.html" class="nav-link">Criptografia</a>
+                <a href="esteganografia.html" class="nav-link">Esteganografia</a>
                 <a href="laboratorio.html" class="nav-link nav-highlight">
                     Laboratório
                 </a>
@@ -82,7 +55,7 @@
     </header>
 
     <main>
-        <!-- Apresentação da página -->
+        <!-- Apresentação -->
         <section class="content-hero">
             <div class="container">
                 <div class="breadcrumb">
@@ -93,9 +66,7 @@
 
                 <div class="content-hero-grid">
                     <div>
-                        <span class="section-code">
-                            MÓDULO 01 // FUNDAMENTOS
-                        </span>
+                        <span class="section-code">MÓDULO 01 // FUNDAMENTOS</span>
 
                         <h1>
                             Como uma imagem existe
@@ -105,54 +76,33 @@
                         <p>
                             Antes de aplicar filtros ou esconder informações,
                             precisamos entender como uma imagem digital é
-                            formada, armazenada e interpretada.
+                            formada, representada e armazenada.
                         </p>
                     </div>
 
                     <aside class="module-summary">
-                        <span class="summary-status">
-                            MÓDULO DISPONÍVEL
-                        </span>
-
+                        <span class="summary-status">MÓDULO DISPONÍVEL</span>
                         <h2>Neste módulo</h2>
 
                         <ul>
-                            <li>
-                                <span>01</span>
-                                Pixels e resolução
-                            </li>
-
-                            <li>
-                                <span>02</span>
-                                Canais RGB
-                            </li>
-
-                            <li>
-                                <span>03</span>
-                                Representação binária
-                            </li>
-
-                            <li>
-                                <span>04</span>
-                                PNG e JPEG
-                            </li>
+                            <li><span>01</span> Pixels e resolução</li>
+                            <li><span>02</span> Canais RGB</li>
+                            <li><span>03</span> Bits e bytes</li>
+                            <li><span>04</span> PNG e JPEG</li>
                         </ul>
                     </aside>
                 </div>
             </div>
         </section>
 
-        <!-- O que é uma imagem -->
+        <!-- Pixels -->
         <section class="content-section">
             <div class="container">
                 <div class="chapter-heading">
                     <span class="chapter-number">01</span>
 
                     <div>
-                        <span class="section-code">
-                            CONCEITO INICIAL
-                        </span>
-
+                        <span class="section-code">CONCEITO INICIAL</span>
                         <h2>Uma imagem é uma matriz de pixels</h2>
                     </div>
                 </div>
@@ -162,15 +112,22 @@
                         <h3>O que é um pixel?</h3>
 
                         <p>
-                            Pixel é a menor unidade visível de uma imagem
-                            digital. Cada pixel armazena informações que
-                            determinam a cor exibida naquela posição.
+                            Pixel é a menor unidade endereçável de uma imagem
+                            digital. Cada pixel ocupa uma posição identificada
+                            por suas coordenadas e contém informações que
+                            determinam a cor exibida nela.
                         </p>
 
                         <p>
                             Quando milhares ou milhões de pixels são
-                            organizados lado a lado, nossos olhos interpretam
-                            o conjunto como uma imagem contínua.
+                            organizados em linhas e colunas, nossos olhos
+                            interpretam o conjunto como uma imagem.
+                        </p>
+
+                        <p>
+                            Por isso, podemos pensar em uma imagem como uma
+                            matriz: para acessar uma cor específica, indicamos
+                            sua posição horizontal X e sua posição vertical Y.
                         </p>
                     </article>
 
@@ -180,25 +137,10 @@
                         </div>
 
                         <div class="mini-terminal-body">
-                            <p>
-                                <span>&gt;</span>
-                                posição: (120, 85)
-                            </p>
-
-                            <p>
-                                <span>&gt;</span>
-                                vermelho: 0–255
-                            </p>
-
-                            <p>
-                                <span>&gt;</span>
-                                verde: 0–255
-                            </p>
-
-                            <p>
-                                <span>&gt;</span>
-                                azul: 0–255
-                            </p>
+                            <p><span>&gt;</span> posição: (120, 85)</p>
+                            <p><span>&gt;</span> vermelho: 0–255</p>
+                            <p><span>&gt;</span> verde: 0–255</p>
+                            <p><span>&gt;</span> azul: 0–255</p>
 
                             <p class="terminal-success">
                                 [OK] Cor pronta para exibição.
@@ -211,7 +153,7 @@
                     <span class="information-icon">!</span>
 
                     <p>
-                        A palavra <strong>pixel</strong> surgiu da expressão
+                        A palavra <strong>pixel</strong> vem da expressão
                         inglesa <em>picture element</em>, que significa
                         “elemento de imagem”.
                     </p>
@@ -226,10 +168,7 @@
                     <span class="chapter-number">02</span>
 
                     <div>
-                        <span class="section-code">
-                            DIMENSÕES
-                        </span>
-
+                        <span class="section-code">DIMENSÕES</span>
                         <h2>Resolução e quantidade de pixels</h2>
                     </div>
                 </div>
@@ -260,17 +199,28 @@
                         </p>
 
                         <p>
-                            Uma imagem com resolução de
-                            <strong>1920 × 1080</strong> possui 1.920 pixels
-                            em cada linha e 1.080 pixels em cada coluna.
+                            Uma imagem de <strong>1920 × 1080</strong> possui
+                            1.920 posições em cada linha e 1.080 linhas:
+                            são 2.073.600 pixels ao todo.
                         </p>
 
                         <p>
-                            Quanto maior a quantidade de pixels, maior pode
-                            ser o nível de detalhe, embora isso também aumente
-                            o tamanho do arquivo.
+                            Aumentar a resolução pode permitir mais detalhes.
+                            Também aumenta o número de posições disponíveis
+                            para armazenar bits por LSB, embora a capacidade
+                            real dependa do método utilizado.
                         </p>
                     </div>
+                </div>
+
+                <div class="information-box">
+                    <span class="information-icon">i</span>
+
+                    <p>
+                        Mais pixels não garantem, sozinhos, uma imagem melhor:
+                        nitidez também depende da captura, dos filtros e da
+                        qualidade do arquivo original.
+                    </p>
                 </div>
             </div>
         </section>
@@ -282,18 +232,15 @@
                     <span class="chapter-number">03</span>
 
                     <div>
-                        <span class="section-code">
-                            SISTEMA DE CORES
-                        </span>
-
+                        <span class="section-code">SISTEMA DE CORES</span>
                         <h2>Os três canais RGB</h2>
                     </div>
                 </div>
 
                 <p class="chapter-introduction">
-                    Em uma imagem RGB, cada pixel combina diferentes
-                    intensidades de vermelho, verde e azul. Cada canal
-                    normalmente possui valores entre 0 e 255.
+                    Em uma imagem RGB, cada pixel combina intensidades de
+                    vermelho, verde e azul. Neste site, cada canal utiliza
+                    valores inteiros de 0 a 255.
                 </p>
 
                 <div class="rgb-grid">
@@ -325,7 +272,6 @@
                             class="color-sample black-sample"
                             aria-hidden="true"
                         ></span>
-
                         <code>rgb(0, 0, 0)</code>
                         <p>Preto</p>
                     </div>
@@ -335,7 +281,6 @@
                             class="color-sample white-sample"
                             aria-hidden="true"
                         ></span>
-
                         <code>rgb(255, 255, 255)</code>
                         <p>Branco</p>
                     </div>
@@ -345,15 +290,26 @@
                             class="color-sample green-sample"
                             aria-hidden="true"
                         ></span>
-
                         <code>rgb(0, 255, 102)</code>
                         <p>Verde PixelCipher</p>
                     </div>
                 </div>
+
+                <div class="information-box">
+                    <span class="information-icon">i</span>
+
+                    <p>
+                        Cada canal RGB de 0 a 255 pode ser representado por
+                        <strong>8 bits</strong>. Os três canais juntos usam
+                        <strong>24 bits de cor</strong> por pixel. Alguns
+                        formatos também incluem um quarto canal, chamado
+                        <strong>alfa</strong>, para representar transparência.
+                    </p>
+                </div>
             </div>
         </section>
 
-        <!-- Laboratório de pixels -->
+        <!-- Visualizador -->
         <section class="content-section interactive-section">
             <div class="container">
                 <div class="chapter-heading">
@@ -363,14 +319,14 @@
                         <span class="section-code">
                             EXPERIÊNCIA INTERATIVA
                         </span>
-
                         <h2>Investigue os pixels</h2>
                     </div>
                 </div>
 
                 <p class="chapter-introduction">
-                    Mova o cursor sobre a imagem. O sistema mostrará as
-                    informações do pixel selecionado em tempo real.
+                    Mova o cursor ou toque sobre a imagem. O sistema exibirá
+                    as coordenadas, a cor e os valores binários do pixel
+                    selecionado em tempo real.
                 </p>
 
                 <div class="pixel-laboratory">
@@ -447,25 +403,16 @@
 
                         <div class="binary-data">
                             <span>Representação binária</span>
-
-                            <code id="binary-red">
-                                R: 00000000
-                            </code>
-
-                            <code id="binary-green">
-                                G: 00000000
-                            </code>
-
-                            <code id="binary-blue">
-                                B: 00000000
-                            </code>
+                            <code id="binary-red">R: 00000000</code>
+                            <code id="binary-green">G: 00000000</code>
+                            <code id="binary-blue">B: 00000000</code>
                         </div>
                     </aside>
                 </div>
             </div>
         </section>
 
-        <!-- Binário e LSB -->
+        <!-- Binário -->
         <section class="content-section">
             <div class="container">
                 <div class="chapter-heading">
@@ -475,7 +422,6 @@
                         <span class="section-code">
                             REPRESENTAÇÃO BINÁRIA
                         </span>
-
                         <h2>Dos valores RGB aos bits</h2>
                     </div>
                 </div>
@@ -485,15 +431,24 @@
                         <h3>Por que os bits importam?</h3>
 
                         <p>
-                            Computadores armazenam informações utilizando
-                            valores binários: zero e um. Um valor RGB entre
-                            0 e 255 pode ser representado por oito bits.
+                            Computadores representam dados com valores
+                            binários: <strong>0</strong> e <strong>1</strong>.
+                            Um bit armazena um desses valores; oito bits
+                            formam um byte.
                         </p>
 
                         <p>
-                            A esteganografia LSB modifica o último bit desses
-                            valores para armazenar informações com alterações
-                            visuais praticamente imperceptíveis.
+                            O número decimal 202, por exemplo, corresponde
+                            ao byte binário 11001010. Seu último dígito
+                            tem o menor peso na composição do número.
+                        </p>
+
+                        <p>
+                            A esteganografia LSB substitui esse último bit
+                            para registrar dados. No método usado pelo
+                            PixelCipher Lab, é inserido um bit em cada canal
+                            vermelho, verde e azul; o canal de transparência
+                            não é utilizado.
                         </p>
                     </article>
 
@@ -522,9 +477,12 @@
                     <span class="information-icon">i</span>
 
                     <p>
-                        A diferença entre 202 e 203 é pequena demais para
-                        causar uma mudança visual facilmente perceptível,
-                        mas já permite armazenar um bit da mensagem.
+                        A alteração de 202 para 203 costuma ser difícil de
+                        perceber visualmente, mas já permite armazenar
+                        <strong>um bit</strong>. Isso não significa que a
+                        mensagem seja impossível de detectar por análise
+                        técnica; no laboratório principal, ela também será
+                        criptografada.
                     </p>
                 </div>
             </div>
@@ -540,47 +498,120 @@
                         <span class="section-code">
                             FORMATOS DE ARQUIVO
                         </span>
-
-                        <h2>Por que usaremos imagens PNG?</h2>
+                        <h2>Por que exportaremos em PNG?</h2>
                     </div>
                 </div>
 
                 <div class="format-grid">
                     <article class="format-card recommended">
                         <span class="format-status">RECOMENDADO</span>
-
                         <h3>PNG</h3>
 
                         <p>
-                            Utiliza compressão sem perdas, preservando os
-                            valores dos pixels e os bits da mensagem escondida.
+                            Sua compressão sem perdas permite salvar e abrir
+                            a imagem mantendo os valores dos pixels
+                            necessários à extração da mensagem LSB.
                         </p>
 
                         <ul>
-                            <li>Preserva os pixels</li>
+                            <li>Preserva os valores ao salvar</li>
                             <li>Suporta transparência</li>
-                            <li>Adequado para LSB</li>
+                            <li>Adequado para o método do site</li>
                         </ul>
                     </article>
 
                     <article class="format-card">
-                        <span class="format-status warning">
-                            CUIDADO
-                        </span>
-
+                        <span class="format-status warning">CUIDADO</span>
                         <h3>JPEG</h3>
 
                         <p>
-                            Utiliza compressão com perdas e pode alterar os
-                            pixels, destruindo ou corrompendo a mensagem
-                            escondida.
+                            Sua compressão com perdas modifica os dados da
+                            imagem. Por isso, converter o PNG final para
+                            JPEG pode corromper os bits escondidos.
                         </p>
 
                         <ul>
                             <li>Arquivo geralmente menor</li>
-                            <li>Descarta informações</li>
-                            <li>Inadequado para nosso método</li>
+                            <li>Altera informações da imagem</li>
+                            <li>Inadequado para extrair nosso LSB</li>
                         </ul>
+                    </article>
+                </div>
+
+                <div class="information-box">
+                    <span class="information-icon">!</span>
+
+                    <p>
+                        Você pode escolher JPEG como <strong>imagem de
+                        entrada</strong> no laboratório. O resultado será
+                        exportado em PNG. Depois de esconder a mensagem,
+                        evite redimensionar, recortar, filtrar ou converter
+                        esse PNG: essas operações podem mudar os pixels.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Glossário dentro da página atual -->
+        <section class="content-section">
+            <div class="container">
+                <div class="chapter-heading">
+                    <span class="chapter-number">07</span>
+
+                    <div>
+                        <span class="section-code">
+                            REVISÃO RÁPIDA
+                        </span>
+                        <h2>Termos para os próximos módulos</h2>
+                    </div>
+                </div>
+
+                <div class="text-grid">
+                    <article class="text-card">
+                        <h3>Imagem e cor</h3>
+
+                        <p>
+                            <strong>Pixel:</strong> posição individual da
+                            imagem com informações de cor.
+                        </p>
+
+                        <p>
+                            <strong>Resolução:</strong> número de pixels na
+                            largura e na altura.
+                        </p>
+
+                        <p>
+                            <strong>RGB:</strong> canais vermelho, verde e
+                            azul usados para formar cores.
+                        </p>
+
+                        <p>
+                            <strong>Canal alfa:</strong> informação adicional
+                            usada para representar transparência.
+                        </p>
+                    </article>
+
+                    <article class="text-card">
+                        <h3>Dados e processamento</h3>
+
+                        <p>
+                            <strong>Bit:</strong> valor binário 0 ou 1.
+                        </p>
+
+                        <p>
+                            <strong>Byte:</strong> conjunto de oito bits.
+                        </p>
+
+                        <p>
+                            <strong>LSB:</strong> bit menos significativo de
+                            um valor binário.
+                        </p>
+
+                        <p>
+                            <strong>Canvas:</strong> área do navegador na
+                            qual o JavaScript pode desenhar imagens e acessar
+                            os valores de seus pixels.
+                        </p>
                     </article>
                 </div>
             </div>
@@ -590,10 +621,7 @@
         <section class="next-module-section">
             <div class="container next-module-card">
                 <div>
-                    <span class="section-code">
-                        MÓDULO CONCLUÍDO
-                    </span>
-
+                    <span class="section-code">MÓDULO CONCLUÍDO</span>
                     <h2>Agora vamos modificar os pixels</h2>
 
                     <p>
@@ -603,8 +631,7 @@
                 </div>
 
                 <a href="filtros.html" class="button button-primary">
-                    Ir para filtros
-                    <span>→</span>
+                    Ir para filtros <span>→</span>
                 </a>
             </div>
         </section>
@@ -616,8 +643,7 @@
                 <span class="logo-symbol">&lt;/&gt;</span>
 
                 <span class="logo-text">
-                    PixelCipher
-                    <strong>Lab</strong>
+                    PixelCipher <strong>Lab</strong>
                 </span>
             </a>
 
@@ -634,13 +660,9 @@
 
         <div class="container footer-bottom">
             <span>
-                PixelCipher Lab ©
-                <span id="current-year"></span>
+                PixelCipher Lab © <span id="current-year"></span>
             </span>
-
-            <span>
-                Conexão segura // Aprendizado interativo
-            </span>
+            <span>Conexão segura // Aprendizado interativo</span>
         </div>
     </footer>
 </body>

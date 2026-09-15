@@ -9,18 +9,17 @@ document.addEventListener("DOMContentLoaded", () => {
             question: "O que é um pixel?",
             options: [
                 "Um formato de arquivo",
-                "A menor unidade de uma imagem digital",
+                "Uma unidade que compõe uma imagem digital",
                 "Um algoritmo de criptografia",
                 "Um filtro de nitidez"
             ],
             correct: 1,
             explanation:
-                "Pixel é a menor unidade que compõe uma imagem digital e armazena informações de cor."
+                "Uma imagem digital é organizada em pixels. Cada pixel representa uma posição da imagem e contém informações utilizadas para determinar sua cor."
         },
         {
             category: "Cores RGB",
-            question:
-                "Quais são os três canais utilizados pelo sistema RGB?",
+            question: "Quais são os três canais utilizados pelo sistema RGB?",
             options: [
                 "Vermelho, verde e azul",
                 "Vermelho, cinza e preto",
@@ -29,12 +28,11 @@ document.addEventListener("DOMContentLoaded", () => {
             ],
             correct: 0,
             explanation:
-                "RGB significa Red, Green e Blue: vermelho, verde e azul."
+                "RGB vem de Red, Green e Blue: vermelho, verde e azul. A combinação dos valores desses canais representa diferentes cores."
         },
         {
             category: "Filtragem",
-            question:
-                "O que um filtro digital faz em uma imagem?",
+            question: "O que um filtro digital faz em uma imagem?",
             options: [
                 "Modifica ou analisa os valores dos pixels",
                 "Transforma qualquer imagem em vídeo",
@@ -43,12 +41,11 @@ document.addEventListener("DOMContentLoaded", () => {
             ],
             correct: 0,
             explanation:
-                "Filtros digitais realizam operações sobre os pixels para modificar cores, brilho, contraste, bordas ou outros aspectos."
+                "Um filtro realiza operações sobre os pixels para modificar ou analisar características como brilho, cor, contraste, nitidez e bordas."
         },
         {
             category: "Filtragem",
-            question:
-                "Qual filtro normalmente utiliza pixels vizinhos para produzir seu resultado?",
+            question: "Qual filtro normalmente utiliza pixels vizinhos para produzir seu resultado?",
             options: [
                 "Separação do canal vermelho",
                 "Negativo",
@@ -57,54 +54,50 @@ document.addEventListener("DOMContentLoaded", () => {
             ],
             correct: 2,
             explanation:
-                "O desfoque pode calcular a média dos pixels vizinhos utilizando uma matriz chamada kernel."
+                "Um desfoque pode combinar os valores de pixels vizinhos. Uma forma de fazer isso é aplicar uma matriz de valores, chamada kernel, sobre a imagem."
         },
         {
             category: "Criptografia",
-            question:
-                "Qual é o principal objetivo da criptografia?",
+            question: "Qual é o principal objetivo da criptografia?",
             options: [
                 "Reduzir a resolução da imagem",
                 "Esconder que uma mensagem existe",
-                "Tornar uma informação ilegível sem a chave",
+                "Proteger a leitura de uma informação sem a chave correta",
                 "Aumentar o brilho dos pixels"
             ],
             correct: 2,
             explanation:
-                "A criptografia transforma a informação em dados que não devem ser compreendidos sem a chave correta."
+                "A criptografia transforma a informação em dados cifrados. Sem a chave correta, seu conteúdo não deve poder ser recuperado."
         },
         {
             category: "Criptografia",
-            question:
-                "O que acontece quando uma senha incorreta é utilizada no AES-GCM?",
+            question: "O que ocorre ao tentar recuperar dados protegidos por AES-GCM com uma senha incorreta?",
             options: [
                 "A mensagem é recuperada parcialmente",
-                "A descriptografia não é autenticada",
-                "A imagem é convertida para JPEG",
+                "A verificação falha e a mensagem não é recuperada",
+                "A imagem é automaticamente convertida para JPEG",
                 "O texto original aparece normalmente"
             ],
             correct: 1,
             explanation:
-                "O AES-GCM verifica a autenticidade dos dados. Com uma senha incorreta, a descriptografia falha."
+                "O AES-GCM também verifica a integridade e a autenticidade dos dados. Com a senha incorreta, a operação falha em vez de apresentar o texto original."
         },
         {
             category: "Esteganografia",
-            question:
-                "Qual é o principal objetivo da esteganografia?",
+            question: "Qual é o principal objetivo da esteganografia?",
             options: [
-                "Aumentar a resolução",
-                "Ocultar a existência de uma informação",
+                "Aumentar a resolução de uma imagem",
+                "Ocultar a presença de uma informação em outro conteúdo",
                 "Remover todos os canais RGB",
-                "Comprimir uma imagem"
+                "Comprimir obrigatoriamente uma imagem"
             ],
             correct: 1,
             explanation:
-                "A esteganografia busca esconder a existência da mensagem dentro de outro conteúdo."
+                "A esteganografia insere uma informação em um suporte, como uma imagem, buscando dificultar a percepção de que os dados estão ali."
         },
         {
             category: "Esteganografia",
-            question:
-                "O que significa LSB no contexto da esteganografia?",
+            question: "O que significa LSB no contexto da esteganografia?",
             options: [
                 "Large Security Block",
                 "Local System Binary",
@@ -113,26 +106,24 @@ document.addEventListener("DOMContentLoaded", () => {
             ],
             correct: 2,
             explanation:
-                "LSB significa Least Significant Bit, ou bit menos significativo."
+                "LSB significa Least Significant Bit, ou bit menos significativo. Alterar esse bit em um canal RGB modifica seu valor em, no máximo, uma unidade."
         },
         {
             category: "Formatos",
-            question:
-                "Por que o PNG é mais adequado que o JPEG para o método LSB?",
+            question: "Por que o PNG é mais adequado que o JPEG para preservar uma mensagem inserida por LSB?",
             options: [
                 "Porque sempre possui menos pixels",
                 "Porque utiliza somente preto e branco",
-                "Porque preserva os valores dos pixels sem perdas",
-                "Porque não utiliza canais de cores"
+                "Porque pode preservar os valores dos pixels sem perdas",
+                "Porque não utiliza canais de cor"
             ],
             correct: 2,
             explanation:
-                "A compressão sem perdas do PNG preserva os bits inseridos nos canais dos pixels."
+                "O PNG utiliza compressão sem perdas e preserva os valores dos pixels. A compressão do JPEG pode modificar os bits utilizados para armazenar a mensagem."
         },
         {
             category: "Segurança",
-            question:
-                "Qual combinação oferece proteção e ocultação da mensagem?",
+            question: "Qual combinação protege a leitura da mensagem e também permite escondê-la em uma imagem?",
             options: [
                 "Brilho e contraste",
                 "JPEG e redimensionamento",
@@ -141,7 +132,7 @@ document.addEventListener("DOMContentLoaded", () => {
             ],
             correct: 2,
             explanation:
-                "A criptografia protege o conteúdo, enquanto a esteganografia esconde sua existência."
+                "A criptografia protege o conteúdo da mensagem. A esteganografia insere os dados em outro conteúdo, como uma imagem. As técnicas possuem funções diferentes e podem ser combinadas."
         }
     ];
 
@@ -156,20 +147,17 @@ document.addEventListener("DOMContentLoaded", () => {
     const currentQuestionNumber = document.querySelector(
         "#current-question-number"
     );
-
     const progressDescription = document.querySelector(
         "#progress-description"
     );
-
     const sidebarProgress = document.querySelector(
         "#sidebar-progress-value"
     );
-
     const questionNavigation = document.querySelector(
         "#question-navigation"
     );
-
     const currentScore = document.querySelector("#current-score");
+
     const questionCategory = document.querySelector("#question-category");
     const questionLabel = document.querySelector("#question-label");
     const questionText = document.querySelector("#question-text");
@@ -184,13 +172,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const resultDescription = document.querySelector(
         "#result-description"
     );
-
     const resultProgress = document.querySelector("#result-progress");
-
     const resultPercentageText = document.querySelector(
         "#result-percentage-text"
     );
-
     const reviewList = document.querySelector("#review-list");
 
     let questionIndex = 0;
@@ -214,10 +199,12 @@ document.addEventListener("DOMContentLoaded", () => {
         resultElement.classList.add("hidden");
         interfaceElement.classList.remove("hidden");
 
+        resultProgress.style.width = "0%";
+
         renderQuestion();
 
         window.scrollTo({
-            top: interfaceElement.offsetTop - 100,
+            top: Math.max(0, interfaceElement.offsetTop - 100),
             behavior: "smooth"
         });
     }
@@ -247,23 +234,23 @@ document.addEventListener("DOMContentLoaded", () => {
         questionLabel.textContent = `QUESTÃO ${displayNumber}`;
         questionText.textContent = currentQuestion.question;
 
-        answerOptions.innerHTML = "";
+        answerOptions.replaceChildren();
 
         const letters = ["A", "B", "C", "D"];
 
         currentQuestion.options.forEach((option, optionIndex) => {
             const button = document.createElement("button");
+            const letter = document.createElement("span");
+            const optionText = document.createElement("span");
 
             button.type = "button";
             button.className = "answer-option";
 
-            button.innerHTML = `
-                <span class="option-letter">
-                    ${letters[optionIndex]}
-                </span>
+            letter.className = "option-letter";
+            letter.textContent = letters[optionIndex];
+            optionText.textContent = option;
 
-                <span>${option}</span>
-            `;
+            button.append(letter, optionText);
 
             button.addEventListener("click", () => {
                 selectAnswer(optionIndex);
@@ -370,36 +357,33 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (percentage >= 80) {
             resultTitle.textContent = "Excelente resultado";
-
             resultDescription.textContent =
-                "Você demonstrou domínio dos principais conceitos apresentados.";
+                "Você acertou a maior parte das questões. Confira a revisão para reforçar os conceitos.";
         } else if (percentage >= 60) {
             resultTitle.textContent = "Bom resultado";
-
             resultDescription.textContent =
-                "Você compreendeu boa parte do conteúdo, mas ainda pode revisar alguns conceitos.";
+                "Você acertou boa parte das questões. Leia as explicações e revise os assuntos que geraram dúvidas.";
         } else {
             resultTitle.textContent = "Continue aprendendo";
-
             resultDescription.textContent =
-                "Revise os módulos e tente novamente para consolidar o aprendizado.";
+                "Use a revisão para identificar suas dúvidas, retorne aos módulos e tente novamente.";
         }
 
         createReview();
 
         window.scrollTo({
-            top: resultElement.offsetTop - 100,
+            top: Math.max(0, resultElement.offsetTop - 100),
             behavior: "smooth"
         });
     }
 
     function createNavigation() {
-        questionNavigation.innerHTML = "";
+        questionNavigation.replaceChildren();
 
         questions.forEach((_, index) => {
             const item = document.createElement("span");
-            item.textContent = index + 1;
 
+            item.textContent = index + 1;
             questionNavigation.appendChild(item);
         });
     }
@@ -421,47 +405,49 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function createReview() {
-        reviewList.innerHTML = "";
+        reviewList.replaceChildren();
 
         answers.forEach((answer, index) => {
             const item = document.createElement("article");
+            const header = document.createElement("div");
+            const heading = document.createElement("h3");
+            const status = document.createElement("span");
 
             item.className = answer.correct
                 ? "review-item correct"
                 : "review-item incorrect";
 
-            const selectedText =
-                answer.question.options[answer.selected];
+            header.className = "review-item-header";
+            heading.textContent =
+                `${index + 1}. ${answer.question.question}`;
 
-            const correctText =
-                answer.question.options[answer.question.correct];
+            status.className = "review-status";
+            status.textContent = answer.correct
+                ? "[ACERTO]"
+                : "[REVISAR]";
 
-            item.innerHTML = `
-                <div class="review-item-header">
-                    <h3>
-                        ${index + 1}. ${answer.question.question}
-                    </h3>
+            header.append(heading, status);
+            item.appendChild(header);
 
-                    <span class="review-status">
-                        ${answer.correct ? "[ACERTO]" : "[REVISAR]"}
-                    </span>
-                </div>
+            const selectedAnswer = document.createElement("p");
+            selectedAnswer.textContent =
+                `Sua resposta: ${answer.question.options[answer.selected]}`;
 
-                <p>
-                    Sua resposta: ${selectedText}
-                </p>
+            item.appendChild(selectedAnswer);
 
-                ${
-                    answer.correct
-                        ? ""
-                        : `<p>Resposta correta: ${correctText}</p>`
-                }
+            if (!answer.correct) {
+                const correctAnswer = document.createElement("p");
 
-                <p>
-                    ${answer.question.explanation}
-                </p>
-            `;
+                correctAnswer.textContent =
+                    `Resposta correta: ${answer.question.options[answer.question.correct]}`;
 
+                item.appendChild(correctAnswer);
+            }
+
+            const explanation = document.createElement("p");
+            explanation.textContent = answer.question.explanation;
+
+            item.appendChild(explanation);
             reviewList.appendChild(item);
         });
     }
