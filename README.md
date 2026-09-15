@@ -73,7 +73,7 @@ O relatório deve descrever os testes e a experiência realmente realizados, sem
 
 ## Equipe
 
-- Paulo Rogério Vigário Filho;
+- Paulo Rogério Vigario Filho;
 - Theo Vinicius Rezende Panella;
 - Pedro Henrique de Souza Fonseca.
 
