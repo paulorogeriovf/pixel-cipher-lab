@@ -1,6 +1,6 @@
 # PixelCipher Lab
 
-p align="center">
+<p align="center">
   <img src="assets/icons/favicon.png" alt="Logo do PixelCipher Lab" width="120">
 </p>
 Site educacional interativo sobre processamento de imagens, criptografia e esteganografia. O projeto apresenta os conceitos por meio de explicações, exemplos visuais e ferramentas práticas que funcionam diretamente no navegador.
