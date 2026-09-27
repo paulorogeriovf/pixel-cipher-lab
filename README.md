@@ -9,7 +9,7 @@ O tema parte da **filtragem de imagens** e dá ênfase à proteção e à oculta
 
 ## Objetivo
 
-O PixelCipher Lab foi desenvolvido como atividade acadêmica do curso de Ciência da Computação da Universidade Paulista (UNIP). Seu objetivo é ajudar o visitante a:
+O PixelCipher Lab foi desenvolvido como atividade acadêmica do curso de Ciência da Computação da Universidade Paulista (UNIP) para disciplina de Procesamento de Imagem E Visao Computacional. Seu objetivo é ajudar o visitante a:
 
 - Entender pixels, resolução, canais RGB e representação binária;
 - Observar os efeitos de filtros em imagens;
