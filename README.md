@@ -7,12 +7,19 @@ Site educacional interativo sobre processamento de imagens, criptografia e esteg
 
 O tema parte da **filtragem de imagens** e dá ênfase à proteção e à ocultação de mensagens: criptografia com AES-GCM e esteganografia pelo método LSB.
 
+<p align="center">
+  <img src="assets/icons/capa.png"">
+</p>
+
 ## Objetivo
 
 O PixelCipher Lab foi desenvolvido como atividade acadêmica do curso de Ciência da Computação da Universidade Paulista (UNIP) para disciplina de Procesamento de Imagem E Visao Computacional. Seu objetivo é ajudar o visitante a:
 
 - Entender pixels, resolução, canais RGB e representação binária;
 - Observar os efeitos de filtros em imagens;
+<p align="center">
+  <img src="assets/icons/filtro.png"">
+</p>
 - Diferenciar criptografia de esteganografia;
 - Esconder e recuperar mensagens em imagens;
 - Combinar criptografia e esteganografia em uma experiência prática;
@@ -29,6 +36,9 @@ O PixelCipher Lab foi desenvolvido como atividade acadêmica do curso de Ciênci
 - **Sobre:** proposta acadêmica, metodologia, tecnologias e equipe.
 
 ## Como funciona o laboratório
+<p align="center">
+  <img src="assets/icons/lab.png"">
+</p>
 
 Na proteção, o visitante seleciona uma imagem, escreve uma mensagem e define uma senha. A mensagem é criptografada e os dados resultantes são inseridos nos bits menos significativos dos canais RGB. O arquivo final é baixado em **PNG**.
 
@@ -70,6 +80,10 @@ O projeto reúne:
 4. **Relatório reflexivo:** documento separado para registrar a atividade de ensino, os participantes, os resultados observados e a reflexão do grupo.
 
 O relatório deve descrever os testes e a experiência realmente realizados, sem presumir resultados antes da aplicação.
+
+Link do Forms - para avaliação da aprendizagem e experiencia 
+
+https://docs.google.com/forms/d/e/1FAIpQLSdENkg1imTTaDZR3SF9JI6O3-WBB9FTNPTw8kVRRRFZjRrXAQ/viewform?usp=publish-editor
 
 ## Equipe
 
